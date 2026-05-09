@@ -757,7 +757,10 @@ await writeFile(
 await writeFile(resolve(root, "dist", ".nojekyll"), "", "utf8");
 await writeFile(
   resolve(root, "dist", "robots.txt"),
-  "User-agent: *\nAllow: /\nSitemap: https://example.com/sitemap.xml\n",
+  `User-agent: *
+Allow: /
+Sitemap: ${siteOrigin}/sitemap.xml
+`,
   "utf8",
 );
 const sitemapPaths = [
