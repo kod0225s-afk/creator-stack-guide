@@ -29,6 +29,8 @@ jobs:
           node-version: 22
       - name: Build
         run: node ./scripts/generate-site.mjs
+        env:
+          SITE_URL: https://kod0225s-afk.github.io/creator-stack-guide
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
