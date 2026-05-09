@@ -1,0 +1,21 @@
+# Creator Stack Guide
+
+Creator Stack Guide is a small Japanese static site comparing AI video tools for creators who want to start with free hosting, no paid domain, and no ad spend.
+
+Main pages:
+
+- /index.html: AI video tool comparison table and affiliate disclosure.
+- /free-start.html: Free launch plan.
+- /methodology.html: Comparison methodology.
+- /ai-policy.html: AI usage policy and human review policy.
+- /about.html: Site purpose and editorial policy.
+- /ai-video-tools-free.html: Free AI video tool comparison guide.
+- /pictory-vs-heygen.html: Pictory vs HeyGen guide.
+- /shorts-affiliate-workflow.html: YouTube Shorts traffic workflow.
+
+Editorial policy:
+
+- Public affiliate terms are checked before publishing.
+- AI is used for drafts, structure, and static site generation.
+- Human review is required for links, official terms, screenshots, and hands-on results.
+- Draft review pages must not be presented as hands-on reviews until tested.

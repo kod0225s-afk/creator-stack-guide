@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "pictory",
+    "name": "Pictory",
+    "category": "AI text-to-video",
+    "best_for": "ブログ記事や台本を短尺動画に変換したい人",
+    "commission": "20-50% recurring, reported by OpenAffiliate",
+    "approval": "Instant approval reported by OpenAffiliate",
+    "cookie": "30 days reported by OpenAffiliate",
+    "strengths": [
+      "Article-to-video workflow",
+      "Automatic captions",
+      "Stock footage matching",
+      "Beginner-friendly production flow"
+    ],
+    "watchouts": [
+      "Commission terms can change after approval",
+      "Generated videos still need human review before publishing"
+    ],
+    "affiliate_url": "https://pictory.ai?ref=YOUR_AFFILIATE_ID",
+    "source_url": "https://openaffiliate.dev/programs/pictory"
+  },
+  {
+    "slug": "heygen",
+    "name": "HeyGen",
+    "category": "AI avatar video",
+    "best_for": "顔出しなしで解説・営業・多言語動画を作りたい人",
+    "commission": "20% recurring for 12 months on HeyGen page; OpenAffiliate reports 25% recurring",
+    "approval": "Manual review",
+    "cookie": "60 days",
+    "strengths": [
+      "AI avatar video generation",
+      "Text-to-video workflow",
+      "Localization and translation use cases",
+      "Useful for marketing and training videos"
+    ],
+    "watchouts": [
+      "Manual approval may take a few business days",
+      "Avatar-style videos need strong scripts to convert"
+    ],
+    "affiliate_url": "https://www.heygen.com/affiliate-program?sid=YOUR_AFFILIATE_ID",
+    "source_url": "https://www.heygen.com/affiliate-program"
+  },
+  {
+    "slug": "descript",
+    "name": "Descript",
+    "category": "Video and podcast editing",
+    "best_for": "動画・ポッドキャスト編集を文章編集の感覚で速くしたい人",
+    "commission": "$25 per new subscriber on Descript affiliate page",
+    "approval": "Application review; Descript help says approval email may take up to 14 days",
+    "cookie": "Check PartnerStack dashboard after approval",
+    "strengths": [
+      "Edit video and audio from transcript",
+      "Strong podcast and YouTube workflow",
+      "Good fit for creators teaching editing workflows",
+      "PartnerStack tracking after approval"
+    ],
+    "watchouts": [
+      "Not instant approval",
+      "Flat payout may be weaker than recurring offers for high-value audiences"
+    ],
+    "affiliate_url": "https://www.descript.com/affiliate?ref=YOUR_AFFILIATE_ID",
+    "source_url": "https://help.descript.com/hc/en-us/articles/10612726938509"
+  },
+  {
+    "slug": "hypernatural",
+    "name": "Hypernatural",
+    "category": "AI short video editor",
+    "best_for": "TikTok・YouTube Shorts・Instagram向けの短尺動画を作りたい人",
+    "commission": "20% commission through the first year",
+    "approval": "Usually one or two days according to Hypernatural",
+    "cookie": "Check dashboard after approval",
+    "strengths": [
+      "Short-form AI video workflow",
+      "AI narration and captions",
+      "AI B-roll and animation options",
+      "Creator-focused affiliate positioning"
+    ],
+    "watchouts": [
+      "Approval is not guaranteed",
+      "Best promoted with actual sample videos"
+    ],
+    "affiliate_url": "https://hypernatural.ai/affiliate?ref=YOUR_AFFILIATE_ID",
+    "source_url": "https://hypernatural.ai/affiliate"
+  }
+]
