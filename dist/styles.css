@@ -341,11 +341,80 @@ nav a:hover {
 }
 
 .section {
+  --section-accent: var(--teal);
   padding: clamp(40px, 6vw, 76px) max(20px, calc((100vw - var(--max)) / 2));
+  position: relative;
+  isolation: isolate;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 88px;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  background: var(--section-accent);
+}
+
+.section[data-section]::before {
+  content: attr(data-section);
+  position: absolute;
+  top: clamp(18px, 3vw, 30px);
+  right: max(20px, calc((100vw - var(--max)) / 2));
+  z-index: 1;
+  padding: 7px 11px;
+  color: var(--section-accent);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid color-mix(in srgb, var(--section-accent) 32%, var(--line));
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.section--compare {
+  --section-accent: var(--teal);
+  background:
+    linear-gradient(90deg, rgba(13, 123, 104, 0.08), transparent 26%),
+    var(--white);
+}
+
+.section--tools {
+  --section-accent: var(--blue);
+  background:
+    linear-gradient(135deg, rgba(36, 95, 157, 0.11), transparent 30%),
+    #eef5f5;
+}
+
+.section--hub {
+  --section-accent: var(--amber);
+  background:
+    linear-gradient(135deg, rgba(189, 116, 24, 0.14), transparent 30%),
+    #fff8ed;
+}
+
+.section--workflow {
+  --section-accent: var(--coral);
+  background:
+    linear-gradient(135deg, rgba(207, 95, 77, 0.12), transparent 34%),
+    #f6f0f2;
+}
+
+.section--trust {
+  --section-accent: var(--teal-dark);
+  background:
+    linear-gradient(135deg, rgba(6, 79, 68, 0.1), transparent 32%),
+    #f4f9f6;
+}
+
+.section--faq {
+  --section-accent: var(--blue);
+  background:
+    linear-gradient(90deg, rgba(36, 95, 157, 0.07), transparent 28%),
+    var(--white);
 }
 
 .muted-section {
-  background: var(--soft);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -353,6 +422,8 @@ nav a:hover {
 .section__head {
   max-width: 780px;
   margin-bottom: 24px;
+  padding-left: 18px;
+  border-left: 4px solid var(--section-accent);
 }
 
 h2 {
@@ -526,7 +597,6 @@ ul {
   display: grid;
   grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
   gap: 34px;
-  background: var(--white);
 }
 
 .workflow {
@@ -570,11 +640,6 @@ ul {
 .faq {
   display: grid;
   gap: 10px;
-}
-
-.evidence-section {
-  background: #f7fbfa;
-  border-top: 1px solid var(--line);
 }
 
 .trust-grid {
@@ -702,6 +767,28 @@ details p {
   font-size: clamp(24px, 3vw, 34px);
 }
 
+.prose section {
+  margin-top: 22px;
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--teal);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(17, 24, 32, 0.04);
+}
+
+.prose section:nth-of-type(2n) {
+  border-left-color: var(--blue);
+}
+
+.prose section:nth-of-type(3n) {
+  border-left-color: var(--amber);
+}
+
+.prose section h2 {
+  margin-top: 0;
+}
+
 .prose p,
 .prose li {
   color: var(--muted);
@@ -787,6 +874,15 @@ details p {
   .section {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .section[data-section]::before {
+    top: 12px;
+    right: 16px;
+  }
+
+  .section__head {
+    padding-left: 13px;
   }
 
   .hero h1 {
