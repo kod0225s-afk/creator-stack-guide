@@ -39,6 +39,7 @@ http://127.0.0.1:4177
 - `PUBLISH_CHECKLIST.md`
 - `FREE_PROMOTION_TEMPLATES.md`
 - `SECURITY_CHECKLIST.md`
+- `progress/README.md`
 
 ## 最初に申請する候補
 
