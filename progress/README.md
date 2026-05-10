@@ -10,6 +10,8 @@
 2. `PRIORITY_QUEUE.md`
 3. `VALIDATION.md`
 4. `CLAUDE_PROMPT.md`
+5. `NEXT_48_HOURS.md`
+6. `LOW_RATE_STRATEGY.md`
 
 ## 現在の結論
 
