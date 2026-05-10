@@ -75,7 +75,45 @@ function shortCommission(value) {
   return String(value).split(";")[0].replace(", reported by OpenAffiliate", "");
 }
 
+function evidenceStatus(product) {
+  return product.hands_on || {
+    status: "planned",
+    label: product.test_status || "実測予定",
+    sample: product.first_test || "初回テストを予定",
+    tested_at: "未実施",
+    time_to_first_output: "未計測",
+    watermark: "未確認",
+    japanese_support: "未確認",
+    screenshot_count: 0,
+    notes: [],
+  };
+}
+
+function evidenceBadge(product) {
+  const evidence = evidenceStatus(product);
+  return `<span class="evidence-badge evidence-badge--${escapeHtml(evidence.status)}">${escapeHtml(evidence.label)}</span>`;
+}
+
+function affiliateReady(product) {
+  return !String(product.affiliate_url).includes("YOUR_AFFILIATE_ID");
+}
+
+function tableApplyLink(product) {
+  if (affiliateReady(product)) {
+    return `<a class="text-link" href="${escapeHtml(product.affiliate_url)}" rel="sponsored nofollow noopener">申込</a>`;
+  }
+  return `<a class="text-link text-link--muted" href="${escapeHtml(product.source_url)}" rel="noopener">条件確認</a><span class="table-note">成果リンク承認待ち</span>`;
+}
+
+function affiliateButton(product) {
+  if (affiliateReady(product)) {
+    return `<a class="button primary" href="${escapeHtml(product.affiliate_url)}" rel="sponsored nofollow noopener">公式/申込リンク</a>`;
+  }
+  return `<span class="button disabled">成果リンク承認待ち</span>`;
+}
+
 function tableRow(product, index) {
+  const evidence = evidenceStatus(product);
   return `
         <tr>
           <td><span class="rank">${index + 1}</span></td>
@@ -86,7 +124,8 @@ function tableRow(product, index) {
           <td>${escapeHtml(product.best_for)}</td>
           <td>${escapeHtml(shortCommission(product.commission))}</td>
           <td>${escapeHtml(product.approval)}</td>
-          <td><a class="text-link" href="${escapeHtml(product.affiliate_url)}" rel="sponsored nofollow noopener">申込</a></td>
+          <td>${evidenceBadge(product)}<span class="table-note">${escapeHtml(evidence.sample)}</span></td>
+          <td>${tableApplyLink(product)}</td>
         </tr>`;
 }
 
@@ -98,13 +137,14 @@ function card(product) {
           <p class="eyebrow">${escapeHtml(product.category)}</p>
           <h3>${escapeHtml(product.name)}</h3>
         </div>
-        <span class="tool-badge">レビュー</span>
+        ${evidenceBadge(product)}
       </div>
       <p class="fit">向いている人: ${escapeHtml(product.best_for)}</p>
       <dl class="metrics">
         <div><dt>報酬</dt><dd>${escapeHtml(product.commission)}</dd></div>
         <div><dt>承認</dt><dd>${escapeHtml(product.approval)}</dd></div>
         <div><dt>Cookie</dt><dd>${escapeHtml(product.cookie)}</dd></div>
+        <div><dt>実測</dt><dd>${escapeHtml(evidenceStatus(product).sample)}</dd></div>
       </dl>
       <div class="columns">
         <section>
@@ -118,7 +158,7 @@ function card(product) {
       </div>
       <div class="actions">
         <a class="button secondary" href="./${escapeHtml(product.slug)}-review.html">個別記事</a>
-        <a class="button primary" href="${escapeHtml(product.affiliate_url)}" rel="sponsored nofollow noopener">公式/申込リンク</a>
+        ${affiliateButton(product)}
         <a class="button secondary" href="${escapeHtml(product.source_url)}" rel="noopener">条件を確認</a>
       </div>
     </article>`;
@@ -280,6 +320,41 @@ function relatedProductLinks(product) {
     .join("");
 }
 
+function evidencePanel(product) {
+  const evidence = evidenceStatus(product);
+  const screenshots = evidence.screenshots?.length
+    ? evidence.screenshots
+        .map(
+          (item) =>
+            `<figure class="screenshot-frame"><img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}"><figcaption>${escapeHtml(item.caption)}</figcaption></figure>`,
+        )
+        .join("")
+    : [1, 2, 3]
+        .map(
+          (index) =>
+            `<div class="screenshot-placeholder"><span>スクショ ${index}</span><strong>追加予定</strong><p>作成画面、設定画面、出力結果をここに入れます。</p></div>`,
+        )
+        .join("");
+
+  return `<section class="evidence-section-block">
+        <div class="evidence-title">
+          <h2>実際に試した結果</h2>
+          ${evidenceBadge(product)}
+        </div>
+        <p>ここは、AIでまとめた情報と実際の使用感を分けて見せるための欄です。現時点では、実測前の項目は「未計測」「未確認」として表示します。</p>
+        <dl class="evidence-grid">
+          <div><dt>作例テーマ</dt><dd>${escapeHtml(evidence.sample)}</dd></div>
+          <div><dt>実施日</dt><dd>${escapeHtml(evidence.tested_at)}</dd></div>
+          <div><dt>初回出力まで</dt><dd>${escapeHtml(evidence.time_to_first_output)}</dd></div>
+          <div><dt>透かし</dt><dd>${escapeHtml(evidence.watermark)}</dd></div>
+          <div><dt>日本語対応</dt><dd>${escapeHtml(evidence.japanese_support)}</dd></div>
+          <div><dt>スクショ</dt><dd>${escapeHtml(String(evidence.screenshot_count))}枚</dd></div>
+        </dl>
+        <div class="screenshot-strip">${screenshots}</div>
+        ${evidence.notes?.length ? `<ul>${list(evidence.notes)}</ul>` : ""}
+      </section>`;
+}
+
 const footer = `
   <footer class="site-footer">
     <div>
@@ -344,13 +419,15 @@ function sourceList(items) {
 
 function productResearchList() {
   return products
-    .map(
-      (product) => `<li>
+    .map((product) => {
+      const evidence = evidenceStatus(product);
+      return `<li>
           <strong>${escapeHtml(product.name)}</strong>
+          ${evidenceBadge(product)}
           <span>${escapeHtml(product.free_plan)}</span>
-          <span>${escapeHtml(product.test_status)}</span>
-        </li>`,
-    )
+          <span>${escapeHtml(evidence.sample)}</span>
+        </li>`;
+    })
     .join("");
 }
 
@@ -422,6 +499,7 @@ function reviewPage(product) {
         <strong>実測前のメモ</strong>
         <p>このページは公開情報と比較軸をもとにした事前整理です。実際に触った結果、スクリーンショット、動画サンプルは追加検証後に追記します。</p>
       </div>
+      ${evidencePanel(product)}
       <section>
         <h2>どんな悩みに向くか</h2>
         <p>${escapeHtml(note.readerProblem)}</p>
@@ -483,7 +561,7 @@ function reviewPage(product) {
         <ul>${relatedProductLinks(product)}</ul>
       </section>
       <div class="actions">
-        <a class="button primary" href="${escapeHtml(product.affiliate_url)}" rel="sponsored nofollow noopener">公式/申込リンク</a>
+        ${affiliateButton(product)}
         <a class="button secondary" href="${escapeHtml(product.source_url)}" rel="noopener">条件を確認</a>
       </div>
     </article>`,
@@ -802,6 +880,7 @@ ${quickPicks.map(quickPickCard).join("\n")}
               <th>向いている人</th>
               <th>報酬</th>
               <th>承認</th>
+              <th>実測</th>
               <th>申込</th>
             </tr>
           </thead>
