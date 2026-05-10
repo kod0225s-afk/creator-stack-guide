@@ -292,12 +292,67 @@ const footer = `
     <nav aria-label="Footer">
       <a href="./about.html">運営情報</a>
       <a href="./methodology.html">比較基準</a>
+      <a href="./research-notes.html">調査メモ</a>
       <a href="./ai-policy.html">AI利用方針</a>
       <a href="./free-start.html">無料で始める</a>
       <a href="./affiliate-disclosure.html">広告表記</a>
       <a href="./privacy.html">プライバシー</a>
     </nav>
   </footer>`;
+
+const researchSources = [
+  {
+    label: "Google: 高品質レビューの書き方",
+    url: "https://developers.google.com/search/docs/specialty/ecommerce/write-high-quality-reviews",
+    note: "実体験、比較対象、定量的な根拠、向き不向きの説明を重視するために参照。",
+  },
+  {
+    label: "Google: 有用で信頼できるコンテンツ",
+    url: "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+    note: "検索流入だけでなく、読者が判断できる内容になっているかを確認するために参照。",
+  },
+  {
+    label: "Pictory公式価格",
+    url: "https://pictory.ai/pricing",
+    note: "無料トライアル、動画分数、価格の確認元。",
+  },
+  {
+    label: "HeyGen公式価格",
+    url: "https://www.heygen.com/pricing",
+    note: "無料プラン、出力条件、価格の確認元。",
+  },
+  {
+    label: "Descript公式価格",
+    url: "https://www.descript.com/price",
+    note: "無料プラン、文字起こし時間、出力条件の確認元。",
+  },
+  {
+    label: "Hypernatural公式価格",
+    url: "https://hypernatural.ai/pricing",
+    note: "無料プラン、短尺動画の作成条件、価格の確認元。",
+  },
+];
+
+function sourceList(items) {
+  return items
+    .map(
+      (item) =>
+        `<li><a href="${escapeHtml(item.url)}" rel="noopener">${escapeHtml(item.label)}</a><span>${escapeHtml(item.note)}</span></li>`,
+    )
+    .join("");
+}
+
+function productResearchList() {
+  return products
+    .map(
+      (product) => `<li>
+          <strong>${escapeHtml(product.name)}</strong>
+          <span>${escapeHtml(product.free_plan)}</span>
+          <span>${escapeHtml(product.test_status)}</span>
+        </li>`,
+    )
+    .join("");
+}
 
 function pageShell({ title, description, path, body, extraHead = "" }) {
   return `<!doctype html>
@@ -800,6 +855,7 @@ ${products.map(testRow).join("\n")}
         <a href="./ai-video-tools-free.html"><strong>無料で試せるAI動画ツール比較</strong><span>初期費用なしで検証する人向け</span></a>
         <a href="./pictory-vs-heygen.html"><strong>PictoryとHeyGenはどっち？</strong><span>用途別の選び方を整理</span></a>
         <a href="./shorts-affiliate-workflow.html"><strong>Shortsから送客する流れ</strong><span>広告費なしの導線設計</span></a>
+        <a href="./research-notes.html"><strong>調査メモと更新ログ</strong><span>参照元、確認状態、次の検証手順</span></a>
       </div>
     </section>
 
@@ -824,6 +880,7 @@ ${products.map(testRow).join("\n")}
       </div>
       <div class="trust-grid">
         <a href="./methodology.html"><strong>比較基準</strong><span>順位づけと評価軸を明記</span></a>
+        <a href="./research-notes.html"><strong>調査メモ</strong><span>公式情報と競合調査から足した項目</span></a>
         <a href="./ai-policy.html"><strong>AI利用方針</strong><span>AIの使い方と人間確認の範囲</span></a>
         <a href="./about.html"><strong>運営情報</strong><span>誰が、何のために作るか</span></a>
       </div>
@@ -945,6 +1002,70 @@ await writeFile(
       <section>
         <h2>未検証項目の扱い</h2>
         <p>無料プランで未検証の機能、動画品質、商用利用条件は断定しません。実測前のページでは公開情報ベースであることを明記し、検証後に具体的な結果を追記します。</p>
+      </section>
+    </article>`,
+  }),
+  "utf8",
+);
+await writeFile(
+  resolve(root, "dist", "research-notes.html"),
+  pageShell({
+    title: "調査メモと更新ログ",
+    path: "./research-notes.html",
+    description: "Creator Stack Guideで参照した公式情報、競合記事の型、更新ログ、今後の実測レビュー手順。",
+    extraHead: jsonLd({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "AI動画ツール比較の調査メモと更新ログ",
+      dateModified: updated,
+      author: { "@type": "Organization", name: siteName },
+    }),
+    body: `
+    <article class="prose">
+      <p class="eyebrow">Research notes</p>
+      <h1>調査メモと更新ログ</h1>
+      <p class="lead">このページでは、比較記事を作るために見た情報、競合記事から取り入れた型、まだ実測できていない項目を分けて残します。</p>
+      <section>
+        <h2>追加調査で見えたこと</h2>
+        <ul>
+          <li>日本語の比較記事では、無料プラン、料金、商用利用、透かし、日本語対応が早い段階で確認されています。</li>
+          <li>海外の比較記事では、Quick verdict、用途別おすすめ、価格表、How we tested、注意点が前半に置かれています。</li>
+          <li>Googleのレビュー品質ガイドでは、実際に使った証拠、比較対象、定量的な測定、向き不向きの説明が重要です。</li>
+          <li>このサイトでは、実測前の内容を断定せず、公開情報と今後の検証予定を分けて表示します。</li>
+        </ul>
+      </section>
+      <section>
+        <h2>参照した主な情報</h2>
+        <ul class="source-list">${sourceList(researchSources)}</ul>
+      </section>
+      <section>
+        <h2>現在の確認状態</h2>
+        <ul class="research-list">${productResearchList()}</ul>
+      </section>
+      <section>
+        <h2>検索意図ごとの受け皿</h2>
+        <ul>
+          <li>無料で試したい: <a href="./ai-video-tools-free.html">無料で試せるAI動画ツール比較</a></li>
+          <li>PictoryとHeyGenで迷う: <a href="./pictory-vs-heygen.html">PictoryとHeyGenはどっちが向いている？</a></li>
+          <li>Shortsから送客したい: <a href="./shorts-affiliate-workflow.html">YouTube Shortsから比較ページへ送客する流れ</a></li>
+          <li>個別ツールを確認したい: <a href="./index.html#tools">案件別の個別記事</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>次に実測で足すもの</h2>
+        <ol>
+          <li>各ツールで同じテーマの15秒動画、または編集クリップを1本作る。</li>
+          <li>開始から書き出しまでの時間、透かし、出力解像度、日本語字幕、商用利用条件を記録する。</li>
+          <li>スクリーンショット、完成サンプル、つまずいた操作を個別記事へ追記する。</li>
+          <li>比較表の順位を、公開情報ベースから実測込みへ更新する。</li>
+        </ol>
+      </section>
+      <section>
+        <h2>更新ログ</h2>
+        <ul>
+          <li>${updated}: 目的別おすすめ、無料枠、検証計画、調査メモページを追加。</li>
+          <li>${updated}: 個別記事に無料確認、最初の検証手順、比較候補を追加。</li>
+        </ul>
       </section>
     </article>`,
   }),
@@ -1127,6 +1248,7 @@ const sitemapPaths = [
   "free-start.html",
   "about.html",
   "methodology.html",
+  "research-notes.html",
   "ai-policy.html",
   ...intentPages.map((page) => page.file),
   "affiliate-disclosure.html",
@@ -1170,6 +1292,7 @@ Main pages:
 - /index.html: AI video tool comparison table and affiliate disclosure.
 - /free-start.html: Free launch plan.
 - /methodology.html: Comparison methodology.
+- /research-notes.html: Research notes, source log, and update log.
 - /ai-policy.html: AI usage policy and human review policy.
 - /about.html: Site purpose and editorial policy.
 - /ai-video-tools-free.html: Free AI video tool comparison guide.
@@ -1179,6 +1302,7 @@ Main pages:
 Editorial policy:
 
 - Public affiliate terms are checked before publishing.
+- Official pricing pages and search quality guidance are tracked in /research-notes.html.
 - AI is used for drafts, structure, and static site generation.
 - Human review is required for links, official terms, screenshots, and hands-on results.
 - Draft review pages must not be presented as hands-on reviews until tested.

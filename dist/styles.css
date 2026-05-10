@@ -808,7 +808,7 @@ ul {
 
 .trust-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -992,6 +992,37 @@ details p {
   background: var(--soft);
   border: 1px solid var(--line);
   border-radius: 6px;
+}
+
+.source-list,
+.research-list {
+  display: grid;
+  gap: 12px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.source-list li,
+.research-list li {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  background: #fbfcfd;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.source-list a,
+.research-list strong {
+  color: var(--teal-dark);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.source-list span,
+.research-list span {
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .prose-metrics {

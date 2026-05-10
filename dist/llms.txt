@@ -7,6 +7,7 @@ Main pages:
 - /index.html: AI video tool comparison table and affiliate disclosure.
 - /free-start.html: Free launch plan.
 - /methodology.html: Comparison methodology.
+- /research-notes.html: Research notes, source log, and update log.
 - /ai-policy.html: AI usage policy and human review policy.
 - /about.html: Site purpose and editorial policy.
 - /ai-video-tools-free.html: Free AI video tool comparison guide.
@@ -16,6 +17,7 @@ Main pages:
 Editorial policy:
 
 - Public affiliate terms are checked before publishing.
+- Official pricing pages and search quality guidance are tracked in /research-notes.html.
 - AI is used for drafts, structure, and static site generation.
 - Human review is required for links, official terms, screenshots, and hands-on results.
 - Draft review pages must not be presented as hands-on reviews until tested.
