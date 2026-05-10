@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://kod0225s-afk.github.io/creator-stack-guide/sitemap.xml
+Sitemap: https://kod0225s-afk.github.io/creator-stack-guide/sitemap.txt

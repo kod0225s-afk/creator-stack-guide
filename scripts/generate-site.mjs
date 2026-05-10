@@ -1551,6 +1551,7 @@ await writeFile(
   `User-agent: *
 Allow: /
 Sitemap: ${siteOrigin}/sitemap.xml
+Sitemap: ${siteOrigin}/sitemap.txt
 `,
   "utf8",
 );
@@ -1580,6 +1581,11 @@ ${sitemapPaths
   .join("\n")}
 </urlset>
 `,
+  "utf8",
+);
+await writeFile(
+  resolve(root, "dist", "sitemap.txt"),
+  `${sitemapPaths.map((path) => `${siteOrigin}/${path}`).join("\n")}\n`,
   "utf8",
 );
 await writeFile(
