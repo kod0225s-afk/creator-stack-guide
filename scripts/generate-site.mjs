@@ -67,6 +67,10 @@ function list(items) {
   return items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
 }
 
+function paragraphs(items) {
+  return items.map((item) => `<p>${escapeHtml(item)}</p>`).join("");
+}
+
 function shortCommission(value) {
   return String(value).split(";")[0].replace(", reported by OpenAffiliate", "");
 }
@@ -94,30 +98,115 @@ function card(product) {
           <p class="eyebrow">${escapeHtml(product.category)}</p>
           <h3>${escapeHtml(product.name)}</h3>
         </div>
-        <span class="tool-badge">Review</span>
+        <span class="tool-badge">レビュー</span>
       </div>
-      <p class="fit">Best for: ${escapeHtml(product.best_for)}</p>
+      <p class="fit">向いている人: ${escapeHtml(product.best_for)}</p>
       <dl class="metrics">
-        <div><dt>Commission</dt><dd>${escapeHtml(product.commission)}</dd></div>
-        <div><dt>Approval</dt><dd>${escapeHtml(product.approval)}</dd></div>
+        <div><dt>報酬</dt><dd>${escapeHtml(product.commission)}</dd></div>
+        <div><dt>承認</dt><dd>${escapeHtml(product.approval)}</dd></div>
         <div><dt>Cookie</dt><dd>${escapeHtml(product.cookie)}</dd></div>
       </dl>
       <div class="columns">
         <section>
-          <h4>Strong points</h4>
+          <h4>強み</h4>
           <ul>${list(product.strengths)}</ul>
         </section>
         <section>
-          <h4>Watchouts</h4>
+          <h4>注意点</h4>
           <ul>${list(product.watchouts)}</ul>
         </section>
       </div>
       <div class="actions">
-        <a class="button secondary" href="./${escapeHtml(product.slug)}-review.html">レビュー下書き</a>
+        <a class="button secondary" href="./${escapeHtml(product.slug)}-review.html">個別記事</a>
         <a class="button primary" href="${escapeHtml(product.affiliate_url)}" rel="sponsored nofollow noopener">公式/申込リンク</a>
         <a class="button secondary" href="${escapeHtml(product.source_url)}" rel="noopener">条件を確認</a>
       </div>
     </article>`;
+}
+
+const productArticleNotes = {
+  pictory: {
+    verdict:
+      "ブログ記事や台本をすでに持っているなら、Pictoryは最初に試しやすい候補です。ゼロから映像作品を作るツールというより、文章を短尺動画や解説動画へ変換するための道具として見ると判断しやすくなります。",
+    readerProblem:
+      "読者の悩みは「AI動画を作りたい」だけではありません。多くの場合は、記事や台本、ウェビナーなど手元にある素材を、YouTube ShortsやSNSに回せないかを知りたいはずです。Pictoryはその入口に置くと説明しやすいです。",
+    bestUse: [
+      "ブログ記事を動画化して、比較記事への導線を作る",
+      "長い台本から短尺の解説素材を作る",
+      "字幕付きのサンプル動画を作り、レビュー記事に載せる",
+    ],
+    notFit: [
+      "リアルなアバター動画を作りたい",
+      "映画のような生成映像を作りたい",
+      "細かいカット編集までタイムラインで詰めたい",
+    ],
+    affiliateAngle:
+      "紹介するなら「ブログ1本をShorts素材に変える」という変化を見せるのがわかりやすいです。完成動画だけでなく、元の文章、変換後の構成、手直しした箇所を並べると、読者が導入後の作業量を想像しやすくなります。",
+  },
+  heygen: {
+    verdict:
+      "顔出しをせずに説明動画を作りたい人には、HeyGenが候補になります。Pictoryのような記事変換ツールではなく、アバターが話す動画を作るツールとして切り分けると、読者の迷いを減らせます。",
+    readerProblem:
+      "顔出しはしたくない。でも、ただのスライド動画では信頼感が弱い。そう感じている人にとって、アバター動画はわかりやすい選択肢です。営業、研修、多言語展開のように、同じ説明を何度も使う場面と相性があります。",
+    bestUse: [
+      "顔出しなしのサービス説明動画を作る",
+      "営業や研修の説明を動画化する",
+      "多言語向けの動画展開を検討する",
+    ],
+    notFit: [
+      "ブログ記事をそのまま短尺動画に変換したい",
+      "毎日大量のSNS動画だけを低コストで作りたい",
+      "アバター感が出る動画を避けたい",
+    ],
+    affiliateAngle:
+      "紹介するなら、単に機能を並べるより「顔出しなしで説明動画を作りたい」という悩みから入る方が自然です。台本の良し悪しで動画の印象が大きく変わるため、サンプル台本と完成イメージをセットで見せると説得力が出ます。",
+  },
+  descript: {
+    verdict:
+      "動画や音声を文章のように編集したいなら、Descriptは検討しやすい候補です。AI動画生成そのものより、録画・録音した素材を短時間で整える編集ワークフローに強みがあります。",
+    readerProblem:
+      "動画編集でつまずきやすいのは、派手なエフェクトよりも、不要な間を切る、言い間違いを直す、字幕を整えるといった地味な作業です。Descriptはその負担を減らしたい人に向けて説明すると伝わりやすいです。",
+    bestUse: [
+      "YouTubeやポッドキャストの編集時間を短縮する",
+      "録画した解説動画から短尺クリップを作る",
+      "字幕や文字起こしを使ってレビュー素材を整理する",
+    ],
+    notFit: [
+      "テキストだけから完成動画を作りたい",
+      "AIアバターの説明動画を作りたい",
+      "素材なしで映像生成を完結させたい",
+    ],
+    affiliateAngle:
+      "紹介するなら、編集前後の時間差を見せるのが強いです。例えば、10分の録画をどこまで短くできたか、字幕修正に何分かかったかを記録すると、読者が自分の作業に置き換えやすくなります。",
+  },
+  hypernatural: {
+    verdict:
+      "ShortsやTikTok向けに短尺動画を作りたいなら、Hypernaturalは無料運用の最初の実験に向きます。長尺の本格制作ではなく、毎日投稿のための短い動画素材を作る道具として見るのが自然です。",
+    readerProblem:
+      "アフィリエイトでは、いきなり申込リンクを貼っても読者は動きにくいです。まず短尺動画で興味を作り、比較ページで不安を減らす流れが必要になります。Hypernaturalはその最初の動画作成に使いやすい候補です。",
+    bestUse: [
+      "Shorts、TikTok、Instagram向けの短尺動画を作る",
+      "AIナレーションと字幕で比較動画の型を作る",
+      "無料で投稿導線をテストする",
+    ],
+    notFit: [
+      "長尺の研修動画を作りたい",
+      "細かい映像演出をプロ品質で作り込みたい",
+      "実写撮影中心の編集だけをしたい",
+    ],
+    affiliateAngle:
+      "紹介するなら、実際に作った15秒サンプルを起点にするのが一番伝わります。テーマ、台本、生成結果、手直しポイントを並べると、読者が真似しやすい記事になります。",
+  },
+};
+
+function productNote(product) {
+  return productArticleNotes[product.slug] || {
+    verdict: `${product.name}は${product.best_for}に向く候補です。公開情報を確認しながら、無料で試せる範囲から判断します。`,
+    readerProblem: "まずは読者の用途と、無料で検証できる範囲が合っているかを確認します。",
+    bestUse: product.strengths,
+    notFit: product.watchouts,
+    affiliateAngle: "紹介する前に、実際の画面、作例、制限を確認してから本文へ反映します。",
+  };
 }
 
 const footer = `
@@ -170,52 +259,71 @@ ${footer}
 }
 
 function reviewPage(product) {
+  const note = productNote(product);
   return pageShell({
-    title: `${product.name}レビュー下書き`,
+    title: `${product.name}の向き不向き`,
     path: `./${product.slug}-review.html`,
-    description: `${product.name}の向いている用途、報酬条件、注意点、今後の実測レビュー項目を整理。`,
+    description: `${product.name}の向いている用途、報酬条件、注意点、無料で試す前の確認ポイントを整理。`,
     extraHead: breadcrumbLd([
       { name: "Home", path: "index.html" },
-      { name: `${product.name}レビュー下書き`, path: `${product.slug}-review.html` },
+      { name: `${product.name}の向き不向き`, path: `${product.slug}-review.html` },
     ]) + jsonLd({
       "@context": "https://schema.org",
-      "@type": "Review",
-      itemReviewed: {
-        "@type": "SoftwareApplication",
-        name: product.name,
-        applicationCategory: product.category,
-      },
+      "@type": "Article",
+      headline: `${product.name}の向き不向きと無料確認ポイント`,
       author: {
         "@type": "Organization",
         name: siteName,
       },
       dateModified: updated,
-      reviewBody: `${product.name}は${product.best_for}に向く候補として整理しています。現時点では公開情報ベースの下書きで、実測レビューを追加予定です。`,
     }),
     body: `
     <article class="prose">
-      <p class="eyebrow">Review draft</p>
-      <h1>${escapeHtml(product.name)}レビュー下書き</h1>
-      <p class="lead">${escapeHtml(product.best_for)}向けの候補として、公開情報ベースで整理しています。実際の画面確認、無料プランでの生成テスト、動画サンプルは今後追加します。</p>
+      <p class="eyebrow">Tool guide</p>
+      <h1>${escapeHtml(product.name)}の向き不向きと無料確認ポイント</h1>
+      <p class="lead">${escapeHtml(product.best_for)}向けの候補として、公開情報ベースで整理しています。この記事では、誰に向くか、どこに注意するか、無料で試すなら何を見るかを先に整理します。</p>
+      <div class="article-summary">
+        <strong>先に結論</strong>
+        <p>${escapeHtml(note.verdict)}</p>
+        <ul>
+          <li>向いている人: ${escapeHtml(product.best_for)}</li>
+          <li>最初に見る条件: ${escapeHtml(product.approval)}</li>
+          <li>申込前の確認: 報酬条件、無料枠、商用利用、出力制限</li>
+        </ul>
+      </div>
       <div class="callout">
-        <strong>現時点の扱い</strong>
-        <p>このページは実測レビュー前の下書きです。成果リンク差し替え前・公開前に、実際に触った結果とスクリーンショットを追加してください。</p>
+        <strong>実測前のメモ</strong>
+        <p>このページは公開情報と比較軸をもとにした事前整理です。実際に触った結果、スクリーンショット、動画サンプルは追加検証後に追記します。</p>
       </div>
       <section>
-        <h2>向いている人</h2>
-        <p>${escapeHtml(product.best_for)}</p>
+        <h2>どんな悩みに向くか</h2>
+        <p>${escapeHtml(note.readerProblem)}</p>
+        <p>${escapeHtml(product.name)}を選ぶかどうかは、機能数よりも「自分の投稿や記事の流れに入れやすいか」で見た方が失敗しにくいです。</p>
+      </section>
+      <section>
+        <h2>向いている使い方</h2>
+        <ul>${list(note.bestUse)}</ul>
       </section>
       <section>
         <h2>公開情報で確認した条件</h2>
         <dl class="metrics prose-metrics">
-          <div><dt>Commission</dt><dd>${escapeHtml(product.commission)}</dd></div>
-          <div><dt>Approval</dt><dd>${escapeHtml(product.approval)}</dd></div>
+          <div><dt>報酬</dt><dd>${escapeHtml(product.commission)}</dd></div>
+          <div><dt>承認</dt><dd>${escapeHtml(product.approval)}</dd></div>
           <div><dt>Cookie</dt><dd>${escapeHtml(product.cookie)}</dd></div>
         </dl>
       </section>
       <section>
-        <h2>強み</h2>
+        <h2>強みとして見たいところ</h2>
         <ul>${list(product.strengths)}</ul>
+      </section>
+      <section>
+        <h2>向かないケース</h2>
+        <ul>${list(note.notFit)}</ul>
+      </section>
+      <section>
+        <h2>紹介記事での見せ方</h2>
+        <p>${escapeHtml(note.affiliateAngle)}</p>
+        <p>機能を全部説明するより、読者の作業がどう短くなるか、申込前に何を確認すればよいかを具体的に書く方が読み進めやすくなります。</p>
       </section>
       <section>
         <h2>注意点</h2>
@@ -245,11 +353,37 @@ const intentPages = [
     title: "無料で試せるAI動画ツール比較",
     description: "無料で始めたい人向けに、AI動画ツールを比較するときの見方と注意点を整理。",
     h1: "無料で試せるAI動画ツール比較",
-    lead: "最初は有料契約をせず、無料プランや無料トライアルでレビュー素材を作れるかを確認します。",
+    lead: "最初から有料契約をする必要はありません。まずは無料枠で、読者に見せられる作例と、記事に書ける実体験を作れるかを確認します。",
+    summary:
+      "無料プランで見るべきなのは、機能数ではなく「申込前の不安を減らせる証拠を作れるか」です。透かし、出力時間、商用利用、クレジットカード登録の有無を先に見ておくと、あとで記事を書き直す手間が減ります。",
+    takeaways: [
+      "無料枠はレビュー素材を作るための検証環境として使う",
+      "読者には、できることだけでなく制限も書く",
+      "無料で作った作例を比較ページとShortsの両方に使う",
+    ],
     sections: [
-      ["無料で見るべきポイント", ["透かしの有無", "出力できる動画の長さ", "日本語字幕やナレーションの品質", "商用利用条件", "クレジットカード登録の有無"]],
-      ["向いている使い方", ["Shorts用の比較動画を作る", "レビュー記事に載せるサンプルを作る", "操作画面のスクリーンショットを撮る"]],
-      ["注意点", ["無料プランだけでは出力制限がある場合があります", "商用利用条件は必ず公式ページで確認してください", "使っていない機能を実体験として書かないでください"]],
+      {
+        heading: "無料枠で最初に見るべきこと",
+        body: [
+          "AI動画ツールの無料枠は、長く使い続けるためのプランというより、記事に必要な証拠を集める場所です。1本でも実際に作れれば、画面の流れ、出力のクセ、手直しが必要な箇所を書けます。",
+          "特にアフィリエイト記事では、良いところだけを書くより、無料でどこまでできて、どこから有料になるのかを見せた方が信頼されます。",
+        ],
+        items: ["透かしの有無", "出力できる動画の長さ", "日本語字幕やナレーションの品質", "商用利用条件", "クレジットカード登録の有無"],
+      },
+      {
+        heading: "無料で作った素材の使い道",
+        body: [
+          "作例は1回作って終わりではなく、比較ページ、個別レビュー、Shorts投稿で使い回します。文章だけの比較より、実際の出力例がある方が読者は判断しやすくなります。",
+        ],
+        items: ["Shorts用の比較動画を作る", "レビュー記事に載せるサンプルを作る", "操作画面のスクリーンショットを撮る", "失敗例や手直しポイントもメモする"],
+      },
+      {
+        heading: "無料プランで注意すること",
+        body: [
+          "無料と書かれていても、出力に透かしが入る、生成回数が少ない、商用利用は有料のみ、といった制限があります。記事ではこの制限を隠さずに書いた方が、結果的に読者の信頼を得やすいです。",
+        ],
+        items: ["無料プランだけでは出力制限がある場合があります", "商用利用条件は必ず公式ページで確認してください", "使っていない機能を実体験として書かないでください"],
+      },
     ],
   },
   {
@@ -257,11 +391,38 @@ const intentPages = [
     title: "PictoryとHeyGenはどっちが向いている？",
     description: "PictoryとHeyGenを、用途、紹介しやすさ、Shorts導線との相性で比較。",
     h1: "PictoryとHeyGenはどっちが向いている？",
-    lead: "記事や台本を短尺動画にしたいならPictory、顔出しなしのアバター解説を作りたいならHeyGenが候補になります。",
+    lead: "PictoryとHeyGenは、どちらもAI動画ツールですが役割はかなり違います。記事や台本を動画化したいのか、顔出しなしで人が話すような説明動画を作りたいのかで選び方が変わります。",
+    summary:
+      "文章を動画に変えたいならPictory、アバターで説明したいならHeyGenから見るのが自然です。比較するときは、機能の多さではなく、自分が作る動画の型に合っているかで判断します。",
+    takeaways: [
+      "Pictoryはブログや台本の再利用に向く",
+      "HeyGenはアバター説明や多言語展開に向く",
+      "どちらも作例を見せると成約前の不安を減らしやすい",
+    ],
     sections: [
-      ["用途の違い", ["Pictory: ブログ記事や台本の動画化", "HeyGen: アバター解説、営業、研修、多言語動画"]],
-      ["アフィリエイト導線の違い", ["Pictoryは記事から動画への変換例を見せやすい", "HeyGenは顔出しなし動画の悩みに刺さりやすい", "どちらも実際の生成例があると成約前の不安を減らしやすい"]],
-      ["最初の選び方", ["無料で作れるサンプルの質を確認する", "自分のShortsテーマに合う方を優先する", "承認条件と報酬条件は申込前に確認する"]],
+      {
+        heading: "用途の違い",
+        body: [
+          "Pictoryは、すでにある文章や長めの素材を動画へ変える方向に向いています。ブログ記事、台本、ウェビナーの内容を短くまとめる流れを作りたい人に説明しやすいです。",
+          "HeyGenは、アバターが話す動画を作る方向に向いています。顔出しせずに説明したい、研修や営業資料を動画化したい、多言語で同じ内容を届けたい、という悩みから入ると自然です。",
+        ],
+        items: ["Pictory: ブログ記事や台本の動画化", "HeyGen: アバター解説、営業、研修、多言語動画"],
+      },
+      {
+        heading: "アフィリエイト導線の違い",
+        body: [
+          "Pictoryは「この記事が動画になった」という変化を見せやすく、比較記事やShortsとの相性があります。HeyGenは「顔出ししなくても説明動画を作れる」という悩みに刺さりやすいです。",
+          "どちらも、公式機能をなぞるだけでは弱いです。読者が知りたいのは、実際にどんな素材を入れて、どんな動画になり、どこを直したかです。",
+        ],
+        items: ["Pictoryは記事から動画への変換例を見せやすい", "HeyGenは顔出しなし動画の悩みに刺さりやすい", "どちらも実際の生成例があると成約前の不安を減らしやすい"],
+      },
+      {
+        heading: "最初の選び方",
+        body: [
+          "迷ったら、先に自分が投稿する動画の型を決めます。文章を再利用する型ならPictory、話者が説明する型ならHeyGenです。報酬条件だけで選ぶと、記事の説得力が弱くなります。",
+        ],
+        items: ["無料で作れるサンプルの質を確認する", "自分のShortsテーマに合う方を優先する", "承認条件と報酬条件は申込前に確認する"],
+      },
     ],
   },
   {
@@ -269,14 +430,54 @@ const intentPages = [
     title: "YouTube Shortsから比較ページへ送客する流れ",
     description: "広告費を使わず、ShortsからAI動画ツール比較ページへ誘導する無料運用フロー。",
     h1: "YouTube Shortsから比較ページへ送客する流れ",
-    lead: "無料運用では、Shortsで興味を作り、比較ページで申込前の不安を減らす流れを作ります。",
+    lead: "無料運用では、Shortsだけで売ろうとしません。Shortsで興味を作り、比較ページで申込前の不安を減らす流れを作ります。",
+    summary:
+      "Shortsは入口、比較ページは納得する場所です。15秒の動画ではすべてを説明できないので、動画では悩みをひとつだけ扱い、詳しい判断材料は比較ページに置きます。",
+    takeaways: [
+      "Shortsではひとつの悩みだけを扱う",
+      "概要欄や固定コメントで比較ページへつなぐ",
+      "比較ページでは条件、注意点、作例を見せる",
+    ],
     sections: [
-      ["投稿テーマ", ["AとBどっち", "初心者が失敗しやすいポイント", "無料プランでできること", "作例ビフォーアフター"]],
-      ["概要欄の導線", ["最初の1行で比較ページの価値を伝える", "広告リンクを含むことを明記する", "直接成果リンクだけでなく比較ページへ誘導する"]],
-      ["改善の見方", ["クリックされるテーマを残す", "反応が薄い投稿はタイトルを変える", "比較ページで読まれている箇所を増やす"]],
+      {
+        heading: "投稿テーマの作り方",
+        body: [
+          "最初から完璧なレビュー動画を作ろうとすると続きません。無料運用では、1本のShortsにつき悩みをひとつに絞ります。たとえば「顔出しなしで説明動画を作りたい」「ブログ記事を動画にしたい」のように、読者が自分ごとにしやすい切り口にします。",
+        ],
+        items: ["AとBどっち", "初心者が失敗しやすいポイント", "無料プランでできること", "作例ビフォーアフター"],
+      },
+      {
+        heading: "概要欄の導線",
+        body: [
+          "Shortsの中で細かい条件まで説明すると、動画が重くなります。動画では興味を作り、概要欄や固定コメントで比較ページへ誘導します。比較ページには、報酬条件ではなく読者の判断材料を置くのが大事です。",
+        ],
+        items: ["最初の1行で比較ページの価値を伝える", "広告リンクを含むことを明記する", "直接成果リンクだけでなく比較ページへ誘導する"],
+      },
+      {
+        heading: "改善の見方",
+        body: [
+          "最初は再生数だけで判断しない方がいいです。比較ページへのクリック、読まれているテーマ、申込前に見られているページを見ながら、残すテーマと捨てるテーマを分けます。",
+        ],
+        items: ["クリックされるテーマを残す", "反応が薄い投稿はタイトルを変える", "比較ページで読まれている箇所を増やす"],
+      },
     ],
   },
 ];
+
+function contentSection(section) {
+  if (Array.isArray(section)) {
+    const [heading, items] = section;
+    return `<section>
+        <h2>${escapeHtml(heading)}</h2>
+        <ul>${list(items)}</ul>
+      </section>`;
+  }
+  return `<section>
+        <h2>${escapeHtml(section.heading)}</h2>
+        ${paragraphs(section.body || [])}
+        ${section.items?.length ? `<ul>${list(section.items)}</ul>` : ""}
+      </section>`;
+}
 
 function intentPage(page) {
   const faq = [
@@ -310,12 +511,12 @@ function intentPage(page) {
       <p class="eyebrow">SEO content hub</p>
       <h1>${escapeHtml(page.h1)}</h1>
       <p class="lead">${escapeHtml(page.lead)}</p>
-      ${page.sections
-        .map(([heading, items]) => `<section>
-        <h2>${escapeHtml(heading)}</h2>
-        <ul>${list(items)}</ul>
-      </section>`)
-        .join("")}
+      <div class="article-summary">
+        <strong>先に結論</strong>
+        <p>${escapeHtml(page.summary)}</p>
+        <ul>${list(page.takeaways)}</ul>
+      </div>
+      ${page.sections.map(contentSection).join("")}
       <section>
         <h2>関連ページ</h2>
         <ul>
@@ -385,8 +586,8 @@ ${head({
       </div>
       <div class="hero-preview" aria-label="Affiliate funnel preview">
         <div class="preview-top">
-          <span>Revenue path</span>
-          <strong>Fast launch stack</strong>
+          <span>収益導線</span>
+          <strong>最短公開の流れ</strong>
         </div>
         <div class="signal-row">
           <span class="signal active"></span>
@@ -423,7 +624,7 @@ ${head({
       <div>
         <span>Step 3</span>
         <strong>紹介材料を作る</strong>
-        <p>案件詳細とレビュー下書きで、記事やShortsに使う材料を集めます。</p>
+        <p>案件詳細と個別記事で、記事やShortsに使う材料を集めます。</p>
       </div>
       <div>
         <span>Step 4</span>
@@ -442,12 +643,12 @@ ${head({
         <table>
           <thead>
             <tr>
-              <th>Rank</th>
-              <th>Tool</th>
-              <th>Best fit</th>
-              <th>Commission</th>
-              <th>Approval</th>
-              <th>Apply</th>
+              <th>順位</th>
+              <th>ツール</th>
+              <th>向いている人</th>
+              <th>報酬</th>
+              <th>承認</th>
+              <th>申込</th>
             </tr>
           </thead>
           <tbody>
@@ -488,7 +689,7 @@ ${products.map(card).join("\n")}
       </div>
       <ol class="workflow">
         <li><strong>申請する</strong><span>公式/ASPに申請し、承認されたURLだけをdata/products.jsonへ貼る。</span></li>
-        <li><strong>実例を作る</strong><span>無料プランで15秒サンプルを1本作り、スクショと所感をレビュー下書きに追加する。</span></li>
+        <li><strong>実例を作る</strong><span>無料プランで15秒サンプルを1本作り、スクショと所感を個別記事に追加する。</span></li>
         <li><strong>送客する</strong><span>「AとBどっち」「初心者におすすめ」「失敗例」の3型でShortsやSNSから比較ページへ誘導する。</span></li>
         <li><strong>更新する</strong><span>週1で報酬、cookie、承認条件を見直し、古い表記を直す。</span></li>
       </ol>
@@ -601,7 +802,7 @@ await writeFile(
       </section>
       <section>
         <h2>未検証項目の扱い</h2>
-        <p>無料プランで未検証の機能、動画品質、商用利用条件は断定しません。実測前のページには「レビュー下書き」と明記し、検証後に具体的な結果を追記します。</p>
+        <p>無料プランで未検証の機能、動画品質、商用利用条件は断定しません。実測前のページでは公開情報ベースであることを明記し、検証後に具体的な結果を追記します。</p>
       </section>
     </article>`,
   }),

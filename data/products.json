@@ -2,20 +2,20 @@
   {
     "slug": "pictory",
     "name": "Pictory",
-    "category": "AI text-to-video",
+    "category": "AI文章→動画",
     "best_for": "ブログ記事や台本を短尺動画に変換したい人",
-    "commission": "20-50% recurring, reported by OpenAffiliate",
-    "approval": "Instant approval reported by OpenAffiliate",
-    "cookie": "30 days reported by OpenAffiliate",
+    "commission": "OpenAffiliate情報では20〜50%の継続報酬",
+    "approval": "OpenAffiliate情報では即時承認",
+    "cookie": "OpenAffiliate情報では30日",
     "strengths": [
-      "Article-to-video workflow",
-      "Automatic captions",
-      "Stock footage matching",
-      "Beginner-friendly production flow"
+      "記事や台本を動画化しやすい",
+      "自動字幕を使いやすい",
+      "ストック素材を自動で合わせやすい",
+      "初心者でも流れを作りやすい"
     ],
     "watchouts": [
-      "Commission terms can change after approval",
-      "Generated videos still need human review before publishing"
+      "承認後に報酬条件が変わる可能性があります",
+      "生成動画は公開前に人間の確認が必要です"
     ],
     "affiliate_url": "https://pictory.ai?ref=YOUR_AFFILIATE_ID",
     "source_url": "https://openaffiliate.dev/programs/pictory"
@@ -23,20 +23,20 @@
   {
     "slug": "heygen",
     "name": "HeyGen",
-    "category": "AI avatar video",
+    "category": "AIアバター動画",
     "best_for": "顔出しなしで解説・営業・多言語動画を作りたい人",
-    "commission": "20% recurring for 12 months on HeyGen page; OpenAffiliate reports 25% recurring",
-    "approval": "Manual review",
-    "cookie": "60 days",
+    "commission": "公式ページでは12か月間20%継続報酬、OpenAffiliateでは25%継続報酬の記載",
+    "approval": "手動審査",
+    "cookie": "60日",
     "strengths": [
-      "AI avatar video generation",
-      "Text-to-video workflow",
-      "Localization and translation use cases",
-      "Useful for marketing and training videos"
+      "AIアバター動画を作りやすい",
+      "台本から説明動画を作れる",
+      "翻訳や多言語展開と相性がよい",
+      "営業・研修・マーケティング動画に使いやすい"
     ],
     "watchouts": [
-      "Manual approval may take a few business days",
-      "Avatar-style videos need strong scripts to convert"
+      "手動審査のため承認まで数日かかる可能性があります",
+      "アバター動画は台本の質で成果が大きく変わります"
     ],
     "affiliate_url": "https://www.heygen.com/affiliate-program?sid=YOUR_AFFILIATE_ID",
     "source_url": "https://www.heygen.com/affiliate-program"
@@ -44,20 +44,20 @@
   {
     "slug": "descript",
     "name": "Descript",
-    "category": "Video and podcast editing",
+    "category": "動画・ポッドキャスト編集",
     "best_for": "動画・ポッドキャスト編集を文章編集の感覚で速くしたい人",
-    "commission": "$25 per new subscriber on Descript affiliate page",
-    "approval": "Application review; Descript help says approval email may take up to 14 days",
-    "cookie": "Check PartnerStack dashboard after approval",
+    "commission": "公式ページでは新規サブスク登録ごとに25ドル",
+    "approval": "申請審査あり。ヘルプでは承認メールまで最大14日",
+    "cookie": "承認後にPartnerStackで確認",
     "strengths": [
-      "Edit video and audio from transcript",
-      "Strong podcast and YouTube workflow",
-      "Good fit for creators teaching editing workflows",
-      "PartnerStack tracking after approval"
+      "文字起こしを見ながら動画・音声を編集できる",
+      "ポッドキャストやYouTube編集に使いやすい",
+      "編集ワークフローを教える発信と相性がよい",
+      "承認後はPartnerStackで計測を確認できる"
     ],
     "watchouts": [
-      "Not instant approval",
-      "Flat payout may be weaker than recurring offers for high-value audiences"
+      "即時承認ではありません",
+      "固定報酬のため、継続報酬案件より伸びにくい場合があります"
     ],
     "affiliate_url": "https://www.descript.com/affiliate?ref=YOUR_AFFILIATE_ID",
     "source_url": "https://help.descript.com/hc/en-us/articles/10612726938509"
@@ -65,20 +65,20 @@
   {
     "slug": "hypernatural",
     "name": "Hypernatural",
-    "category": "AI short video editor",
+    "category": "AIショート動画編集",
     "best_for": "TikTok・YouTube Shorts・Instagram向けの短尺動画を作りたい人",
-    "commission": "20% commission through the first year",
-    "approval": "Usually one or two days according to Hypernatural",
-    "cookie": "Check dashboard after approval",
+    "commission": "初年度20%報酬",
+    "approval": "Hypernaturalによると通常1〜2日",
+    "cookie": "承認後に管理画面で確認",
     "strengths": [
-      "Short-form AI video workflow",
-      "AI narration and captions",
-      "AI B-roll and animation options",
-      "Creator-focused affiliate positioning"
+      "短尺AI動画の流れを作りやすい",
+      "AIナレーションと字幕を使える",
+      "AI Bロールやアニメーションを足しやすい",
+      "クリエイター向けに紹介しやすい"
     ],
     "watchouts": [
-      "Approval is not guaranteed",
-      "Best promoted with actual sample videos"
+      "承認は保証されません",
+      "実際のサンプル動画と一緒に紹介した方が伝わりやすいです"
     ],
     "affiliate_url": "https://hypernatural.ai/?via=kodai",
     "source_url": "https://hypernatural.ai/affiliate"
