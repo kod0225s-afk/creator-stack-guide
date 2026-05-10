@@ -224,6 +224,39 @@ function testRow(product) {
       </article>`;
 }
 
+function scoreAverage(product) {
+  const values = Object.values(product.score || {});
+  if (!values.length) return "未評価";
+  const average = values.reduce((sum, value) => sum + value, 0) / values.length;
+  return average.toFixed(1);
+}
+
+function scoreBar(value) {
+  const width = Math.max(0, Math.min(100, Number(value) * 20));
+  return `<span class="score-bar"><span style="width: ${width}%"></span></span>`;
+}
+
+function scoreCard(product) {
+  const score = product.score || {};
+  return `<article class="score-card">
+        <div class="score-card__top">
+          <div>
+            <p class="eyebrow">${escapeHtml(product.category)}</p>
+            <h3>${escapeHtml(product.name)}</h3>
+          </div>
+          <strong>${escapeHtml(scoreAverage(product))}</strong>
+        </div>
+        <dl>
+          <div><dt>無料で始めやすい</dt><dd>${scoreBar(score.free_start || 0)}</dd></div>
+          <div><dt>使いやすさ</dt><dd>${scoreBar(score.ease || 0)}</dd></div>
+          <div><dt>日本語対応</dt><dd>${scoreBar(score.japanese || 0)}</dd></div>
+          <div><dt>Shorts向き</dt><dd>${scoreBar(score.shorts_fit || 0)}</dd></div>
+          <div><dt>収益導線</dt><dd>${scoreBar(score.monetization || 0)}</dd></div>
+        </dl>
+        <p>実測前の暫定スコアです。作例とスクショが入ったら更新します。</p>
+      </article>`;
+}
+
 const productArticleNotes = {
   pictory: {
     verdict:
@@ -683,6 +716,191 @@ const intentPages = [
       },
     ],
   },
+  {
+    file: "hypernatural-free-guide.html",
+    title: "Hypernaturalを無料で試す前に見るポイント",
+    description: "Hypernaturalの無料プランで確認したい項目、Shorts作成の流れ、実測前の注意点を整理。",
+    h1: "Hypernaturalを無料で試す前に見るポイント",
+    lead: "Hypernaturalは短尺動画向けのAI動画ツールです。無料で試すなら、まず15秒の縦型動画を1本作り、出力条件と手直し量を確認します。",
+    summary:
+      "最初に見るべきなのは、派手な機能ではなく、Shorts向けの作例を早く作れるか、透かしや出力条件が許容できるか、比較ページへつなげる素材になるかです。",
+    takeaways: [
+      "15秒の縦型動画を1本作って、作成時間と手直し量を見る",
+      "無料プランの出力条件、透かし、日本語ナレーションを確認する",
+      "作例をHypernatural個別記事とShorts導線記事へ流用する",
+    ],
+    sections: [
+      {
+        heading: "無料で最初に作る動画",
+        body: [
+          "最初は凝った動画ではなく、比較テーマをひとつだけ選びます。たとえば「AI動画ツールは無料でどこまで使える？」のように、15秒で言い切れる題材が向いています。",
+        ],
+        items: ["縦型15秒", "日本語ナレーション", "字幕あり", "比較ページへの誘導文あり"],
+      },
+      {
+        heading: "確認するポイント",
+        body: [
+          "無料プランは、使える機能よりも制限の方が読者にとって重要です。出力できる秒数、透かし、SNSへの出力、商用利用条件を確認して、個別記事へ追記します。",
+        ],
+        items: ["初回出力までの時間", "透かしの有無", "日本語字幕と読み上げの自然さ", "出力後に必要な手直し"],
+      },
+      {
+        heading: "記事に入れると強い情報",
+        body: [
+          "読者が知りたいのは、公式に書いてある機能一覧ではなく、実際に自分でも再現できるかです。スクリーンショットと短い作例があるだけで、記事の信頼度はかなり変わります。",
+        ],
+        items: ["入力した台本", "生成された構成", "直した箇所", "完成動画の用途"],
+      },
+    ],
+  },
+  {
+    file: "ai-video-tools-no-watermark.html",
+    title: "無料で透かしなしに近いAI動画ツールの見方",
+    description: "AI動画ツールを無料で試すときに、透かし、出力制限、商用利用をどう確認するかを整理。",
+    h1: "無料で透かしなしに近いAI動画ツールの見方",
+    lead: "無料でAI動画を作るとき、いちばん見落としやすいのが透かしと出力条件です。機能数よりも、公開できる動画になるかを先に確認します。",
+    summary:
+      "透かしなしを探すときは、無料プランだけで完結するかではなく、出力できる品質、商用利用、SNS投稿に使えるかをセットで見ます。",
+    takeaways: [
+      "透かしの有無は実際に出力して確認する",
+      "無料枠でも商用利用や出力解像度に制限がある場合がある",
+      "透かしなしだけでなく、作成時間と手直し量も比較する",
+    ],
+    sections: [
+      {
+        heading: "透かしで確認すること",
+        body: [
+          "価格ページに透かしなしと書かれていても、プランや出力条件によって違う場合があります。記事では、公式情報と実際の出力結果を分けて書きます。",
+        ],
+        items: ["無料枠の出力に透かしが入るか", "有料プランで透かしが外れるか", "SNS投稿で目立つ位置に入るか"],
+      },
+      {
+        heading: "透かし以外の制限",
+        body: [
+          "無料プランの比較では、透かしだけを見ても判断できません。動画の長さ、出力解像度、月の生成回数、日本語対応もセットで見る必要があります。",
+        ],
+        items: ["出力秒数", "解像度", "生成回数", "日本語字幕", "商用利用条件"],
+      },
+      {
+        heading: "このサイトでの扱い",
+        body: [
+          "実測前の段階では、透かしの有無を断定しません。各ツールで1本ずつ出力し、スクリーンショットと出力結果を個別記事に追記します。",
+        ],
+        items: ["Hypernaturalから検証開始", "Pictory、HeyGen、Descriptは承認・無料枠確認後に実測", "比較表のスコアを実測後に更新"],
+      },
+    ],
+  },
+  {
+    file: "youtube-shorts-ai-video-howto.html",
+    title: "YouTube Shorts向けAI動画の作り方",
+    description: "AI動画ツールでYouTube Shorts向けの短尺動画を作り、比較ページへ送客する流れを整理。",
+    h1: "YouTube Shorts向けAI動画の作り方",
+    lead: "YouTube Shortsでは、短い動画で全部を説明しようとせず、ひとつの悩みだけを扱います。詳しい比較はページ側に置くと導線が作りやすくなります。",
+    summary:
+      "最初の1本は、ツール紹介ではなく読者の悩みから作ります。動画では興味を作り、概要欄や固定コメントで比較ページへつなぎます。",
+    takeaways: [
+      "15秒から30秒で悩みをひとつだけ扱う",
+      "動画内で売り込まず、比較ページへ誘導する",
+      "同じ素材を記事、Shorts、X投稿へ使い回す",
+    ],
+    sections: [
+      {
+        heading: "最初の台本の型",
+        body: [
+          "短尺動画は、導入、比較、結論の3つだけで十分です。たとえば「無料でAI動画を作るなら、まず見るべきは透かしと出力条件です」のように、判断軸をひとつに絞ります。",
+        ],
+        items: ["悩みを1行で言う", "比較軸を1つ出す", "詳しくは比較ページへ誘導する"],
+      },
+      {
+        heading: "使うツールの選び方",
+        body: [
+          "Shorts投稿用なら、長尺の編集機能よりも、短い動画を早く作れるかを優先します。Hypernaturalは最初の検証対象、Pictoryは記事の動画化、HeyGenは顔出しなし解説に向きます。",
+        ],
+        items: ["短尺作成: Hypernatural", "記事を動画化: Pictory", "顔出しなし解説: HeyGen", "編集効率: Descript"],
+      },
+      {
+        heading: "比較ページへつなぐ導線",
+        body: [
+          "概要欄では、直接申込リンクだけを置くより、比較ページへ誘導した方が読者の不安を減らせます。広告リンクを含む場合は、そのことも明記します。",
+        ],
+        items: ["概要欄1行目で比較ページの価値を書く", "広告リンクを含むことを明記する", "個別記事と無料比較記事へ内部リンクする"],
+      },
+    ],
+  },
+  {
+    file: "pictory-alternatives-free.html",
+    title: "Pictoryの代替として無料で試すAI動画ツール",
+    description: "Pictoryの代替候補を、無料枠、用途、Shorts向き、顔出しなし動画の観点で整理。",
+    h1: "Pictoryの代替として無料で試すAI動画ツール",
+    lead: "Pictoryは記事や台本の動画化に向きますが、用途によっては別のツールから試した方が早いこともあります。",
+    summary:
+      "Pictoryの代替は、同じ文章→動画ツールだけで探すより、作りたい動画の型で選ぶ方が失敗しにくいです。",
+    takeaways: [
+      "短尺動画を作りたいならHypernatural",
+      "顔出しなし解説ならHeyGen",
+      "録画編集を速くしたいならDescript",
+    ],
+    sections: [
+      {
+        heading: "Pictoryが向くケース",
+        body: [
+          "Pictoryは、すでにある文章や台本を動画素材へ変えたい人に向きます。ブログ記事を再利用したい場合は、最初に比較しやすい候補です。",
+        ],
+        items: ["ブログ記事を動画化したい", "台本から短尺動画を作りたい", "字幕付きの解説素材を作りたい"],
+      },
+      {
+        heading: "代替候補の選び方",
+        body: [
+          "代替候補を選ぶときは、価格だけではなく用途で分けます。短尺投稿、アバター解説、編集効率では見るべきツールが変わります。",
+        ],
+        items: ["Hypernatural: Shorts向け", "HeyGen: アバター解説向け", "Descript: 編集効率向け"],
+      },
+      {
+        heading: "無料で試す順番",
+        body: [
+          "まずは承認済みリンクがあるHypernaturalで作例を作り、比較ページへ実測情報を足します。その後、PictoryとHeyGenの承認が取れた段階で同じ条件のテストを行います。",
+        ],
+        items: ["Hypernaturalで15秒動画", "Pictoryで記事動画化", "HeyGenで顔出しなし解説", "Descriptで編集時間短縮"],
+      },
+    ],
+  },
+  {
+    file: "faceless-ai-video-tools.html",
+    title: "顔出しなし動画作成に使えるAIツール",
+    description: "顔出しせずにAI動画を作りたい人向けに、アバター、字幕、ナレーション、Shorts導線を整理。",
+    h1: "顔出しなし動画作成に使えるAIツール",
+    lead: "顔出しなしで動画を作るなら、アバター、字幕、ナレーション、短尺編集のどれを使うかで選ぶツールが変わります。",
+    summary:
+      "顔出しなし動画では、見た目の自然さだけでなく、台本の作りやすさ、字幕、声、手直しのしやすさを見ます。",
+    takeaways: [
+      "アバター解説ならHeyGen",
+      "Shorts量産の入口ならHypernatural",
+      "文章を動画に変えるならPictory",
+    ],
+    sections: [
+      {
+        heading: "顔出しなし動画の種類",
+        body: [
+          "顔出しなし動画には、アバターが話す形式、字幕とナレーション中心の形式、画面録画を編集する形式があります。自分の発信テーマに合う型から選びます。",
+        ],
+        items: ["AIアバター解説", "字幕とナレーションのShorts", "記事や台本の動画化", "画面録画の編集"],
+      },
+      {
+        heading: "ツール別の見方",
+        body: [
+          "HeyGenはアバター、Hypernaturalは短尺動画、Pictoryは記事動画化、Descriptは編集効率というように、役割を分けると比較しやすくなります。",
+        ],
+        items: ["HeyGen: 顔出しなし説明", "Hypernatural: Shorts素材", "Pictory: 台本動画化", "Descript: 録画編集"],
+      },
+      {
+        heading: "最初に確認すること",
+        body: [
+          "顔出しなし動画は、台本の質で印象が大きく変わります。無料枠で1本作り、声、字幕、映像の違和感を確認してから記事に反映します。",
+        ],
+        items: ["日本語の自然さ", "字幕の読みやすさ", "アバターや映像の違和感", "修正にかかる時間"],
+      },
+    ],
+  },
 ];
 
 function contentSection(section) {
@@ -934,11 +1152,25 @@ ${products.map(testRow).join("\n")}
         <a href="./ai-video-tools-free.html"><strong>無料で試せるAI動画ツール比較</strong><span>初期費用なしで検証する人向け</span></a>
         <a href="./pictory-vs-heygen.html"><strong>PictoryとHeyGenはどっち？</strong><span>用途別の選び方を整理</span></a>
         <a href="./shorts-affiliate-workflow.html"><strong>Shortsから送客する流れ</strong><span>広告費なしの導線設計</span></a>
+        <a href="./hypernatural-free-guide.html"><strong>Hypernaturalを無料で試す</strong><span>最初の実測対象として使う</span></a>
+        <a href="./ai-video-tools-no-watermark.html"><strong>透かしなしに近い無料AI動画</strong><span>透かし・商用利用・制限を確認</span></a>
+        <a href="./youtube-shorts-ai-video-howto.html"><strong>Shorts向けAI動画の作り方</strong><span>短尺動画から比較ページへ誘導</span></a>
         <a href="./research-notes.html"><strong>調査メモと更新ログ</strong><span>参照元、確認状態、次の検証手順</span></a>
       </div>
     </section>
 
-    <section class="section section--workflow split" id="workflow" data-section="07 無料で回す">
+    <section class="section section--score" id="score" data-section="07 暫定スコア">
+      <div class="section__head">
+        <p class="eyebrow">Provisional score</p>
+        <h2>実測前の暫定スコア</h2>
+        <p>無料枠、使いやすさ、日本語対応、Shorts向き、収益導線の5軸で仮評価しています。実測後に更新します。</p>
+      </div>
+      <div class="score-grid">
+${products.map(scoreCard).join("\n")}
+      </div>
+    </section>
+
+    <section class="section section--workflow split" id="workflow" data-section="08 無料で回す">
       <div>
         <p class="eyebrow">Operate</p>
         <h2>無料で回す運用手順</h2>
@@ -951,7 +1183,7 @@ ${products.map(testRow).join("\n")}
       </ol>
     </section>
 
-    <section class="section section--trust evidence-section" id="trust" data-section="08 信頼性を補強">
+    <section class="section section--trust evidence-section" id="trust" data-section="09 信頼性を補強">
       <div class="section__head">
         <p class="eyebrow">Trust</p>
         <h2>最後に、信頼性を補強する</h2>
@@ -965,7 +1197,7 @@ ${products.map(testRow).join("\n")}
       </div>
     </section>
 
-    <section class="section section--faq" id="faq" data-section="09 迷った時">
+    <section class="section section--faq" id="faq" data-section="10 迷った時">
       <div class="section__head">
         <p class="eyebrow">FAQ</p>
         <h2>迷った時の確認ポイント</h2>
@@ -1377,6 +1609,11 @@ Main pages:
 - /ai-video-tools-free.html: Free AI video tool comparison guide.
 - /pictory-vs-heygen.html: Pictory vs HeyGen guide.
 - /shorts-affiliate-workflow.html: YouTube Shorts traffic workflow.
+- /hypernatural-free-guide.html: Hypernatural free-plan test guide.
+- /ai-video-tools-no-watermark.html: Free AI video watermark check guide.
+- /youtube-shorts-ai-video-howto.html: AI video workflow for YouTube Shorts.
+- /pictory-alternatives-free.html: Free alternatives to Pictory by use case.
+- /faceless-ai-video-tools.html: Faceless AI video tool guide.
 
 Editorial policy:
 

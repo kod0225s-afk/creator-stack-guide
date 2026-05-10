@@ -25,6 +25,13 @@
         "無料トライアルの制限と出力条件を公式ページと実画面で照合します。"
       ]
     },
+    "score": {
+      "free_start": 3,
+      "ease": 4,
+      "japanese": 3,
+      "shorts_fit": 4,
+      "monetization": 4
+    },
     "strengths": [
       "記事や台本を動画化しやすい",
       "自動字幕を使いやすい",
@@ -64,6 +71,13 @@
         "アバターの自然さ、字幕、台本修正のしやすさを確認します。",
         "無料プランの出力条件と商用利用条件を確認して追記します。"
       ]
+    },
+    "score": {
+      "free_start": 4,
+      "ease": 3,
+      "japanese": 4,
+      "shorts_fit": 3,
+      "monetization": 4
     },
     "strengths": [
       "AIアバター動画を作りやすい",
@@ -105,6 +119,13 @@
         "生成AI動画ではなく編集効率の観点で比較します。"
       ]
     },
+    "score": {
+      "free_start": 4,
+      "ease": 4,
+      "japanese": 3,
+      "shorts_fit": 2,
+      "monetization": 3
+    },
     "strengths": [
       "文字起こしを見ながら動画・音声を編集できる",
       "ポッドキャストやYouTube編集に使いやすい",
@@ -144,6 +165,13 @@
         "承認済みリンクを使えるため、最初の実測対象にします。",
         "作成画面、台本入力、出力結果、手直し箇所のスクリーンショットを追加予定です。"
       ]
+    },
+    "score": {
+      "free_start": 4,
+      "ease": 4,
+      "japanese": 3,
+      "shorts_fit": 5,
+      "monetization": 5
     },
     "strengths": [
       "短尺AI動画の流れを作りやすい",

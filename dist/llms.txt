@@ -13,6 +13,11 @@ Main pages:
 - /ai-video-tools-free.html: Free AI video tool comparison guide.
 - /pictory-vs-heygen.html: Pictory vs HeyGen guide.
 - /shorts-affiliate-workflow.html: YouTube Shorts traffic workflow.
+- /hypernatural-free-guide.html: Hypernatural free-plan test guide.
+- /ai-video-tools-no-watermark.html: Free AI video watermark check guide.
+- /youtube-shorts-ai-video-howto.html: AI video workflow for YouTube Shorts.
+- /pictory-alternatives-free.html: Free alternatives to Pictory by use case.
+- /faceless-ai-video-tools.html: Faceless AI video tool guide.
 
 Editorial policy:
 
