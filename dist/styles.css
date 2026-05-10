@@ -426,25 +426,46 @@ nav a:hover {
   box-shadow: 0 10px 20px rgba(17, 24, 32, 0.12);
 }
 
-.section--compare {
+.section--verdict {
   --section-accent: var(--teal);
   background:
     linear-gradient(90deg, rgba(13, 123, 104, 0.08), transparent 26%),
     var(--white);
 }
 
+.section--compare {
+  --section-accent: var(--blue);
+  background:
+    linear-gradient(90deg, rgba(36, 95, 157, 0.08), transparent 26%),
+    #f7fbfb;
+}
+
+.section--pricing {
+  --section-accent: var(--amber);
+  background:
+    linear-gradient(135deg, rgba(189, 116, 24, 0.12), transparent 28%),
+    #fffaf2;
+}
+
 .section--tools {
+  --section-accent: var(--coral);
+  background:
+    linear-gradient(135deg, rgba(207, 95, 77, 0.11), transparent 30%),
+    #fff5f3;
+}
+
+.section--testing {
+  --section-accent: var(--teal-dark);
+  background:
+    linear-gradient(135deg, rgba(6, 79, 68, 0.1), transparent 32%),
+    #f4f9f6;
+}
+
+.section--hub {
   --section-accent: var(--blue);
   background:
     linear-gradient(135deg, rgba(36, 95, 157, 0.11), transparent 30%),
     #eef5f5;
-}
-
-.section--hub {
-  --section-accent: var(--amber);
-  background:
-    linear-gradient(135deg, rgba(189, 116, 24, 0.14), transparent 30%),
-    #fff8ed;
 }
 
 .section--workflow {
@@ -492,6 +513,95 @@ h2 {
   color: var(--muted);
   font-size: 16px;
   line-height: 1.75;
+}
+
+.verdict-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.verdict-card {
+  display: grid;
+  gap: 10px;
+  min-height: 190px;
+  padding: 22px;
+  color: inherit;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--section-accent);
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(17, 24, 32, 0.05);
+}
+
+.verdict-card span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.verdict-card strong {
+  font-size: 24px;
+}
+
+.verdict-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.info-card {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(17, 24, 32, 0.05);
+}
+
+.info-card h3 {
+  margin: 4px 0 0;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.info-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.info-card dl {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.info-card dl div {
+  display: grid;
+  gap: 6px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.info-card dt {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.info-card dd {
+  margin: 0;
+  line-height: 1.7;
 }
 
 .table-wrap {
@@ -919,6 +1029,14 @@ details p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .verdict-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
   .roadmap {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -993,6 +1111,10 @@ details p {
     grid-template-columns: 1fr;
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .verdict-grid {
+    grid-template-columns: 1fr;
   }
 
   table {

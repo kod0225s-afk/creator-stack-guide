@@ -124,6 +124,66 @@ function card(product) {
     </article>`;
 }
 
+const quickPicks = [
+  {
+    label: "最初に無料で動かす",
+    product: "hypernatural",
+    reason: "Shorts向けの作例を作りやすく、比較ページへの送客テストに使いやすい。",
+  },
+  {
+    label: "記事を動画化する",
+    product: "pictory",
+    reason: "手元のブログ記事や台本を、短尺動画の素材へ変える流れを説明しやすい。",
+  },
+  {
+    label: "顔出しせず説明する",
+    product: "heygen",
+    reason: "アバター解説、営業、研修、多言語動画の悩みに合わせて紹介しやすい。",
+  },
+  {
+    label: "編集時間を短くする",
+    product: "descript",
+    reason: "録画や音声を文章編集の感覚で直す用途に向き、生成AI動画とは別軸で比較できる。",
+  },
+];
+
+function productBySlug(slug) {
+  return products.find((product) => product.slug === slug);
+}
+
+function quickPickCard(item) {
+  const product = productBySlug(item.product);
+  return `<a class="verdict-card" href="./${escapeHtml(product.slug)}-review.html">
+        <span>${escapeHtml(item.label)}</span>
+        <strong>${escapeHtml(product.name)}</strong>
+        <p>${escapeHtml(item.reason)}</p>
+      </a>`;
+}
+
+function pricingRow(product) {
+  return `<article class="info-card">
+        <div>
+          <p class="eyebrow">${escapeHtml(product.category)}</p>
+          <h3>${escapeHtml(product.name)}</h3>
+        </div>
+        <dl>
+          <div><dt>無料枠</dt><dd>${escapeHtml(product.free_plan)}</dd></div>
+          <div><dt>有料の入口</dt><dd>${escapeHtml(product.starter_price)}</dd></div>
+        </dl>
+        <a class="text-link" href="${escapeHtml(product.pricing_url)}" rel="noopener">公式価格を確認</a>
+      </article>`;
+}
+
+function testRow(product) {
+  return `<article class="info-card">
+        <div>
+          <p class="eyebrow">${escapeHtml(product.name)}</p>
+          <h3>${escapeHtml(product.first_test)}</h3>
+        </div>
+        <p>${escapeHtml(product.test_status)}</p>
+      </article>`;
+}
+
 const productArticleNotes = {
   pictory: {
     verdict:
@@ -209,6 +269,17 @@ function productNote(product) {
   };
 }
 
+function relatedProductLinks(product) {
+  return products
+    .filter((item) => item.slug !== product.slug)
+    .slice(0, 3)
+    .map(
+      (item) =>
+        `<li><a href="./${escapeHtml(item.slug)}-review.html">${escapeHtml(item.name)}の向き不向き</a> - ${escapeHtml(item.best_for)}</li>`,
+    )
+    .join("");
+}
+
 const footer = `
   <footer class="site-footer">
     <div>
@@ -288,6 +359,7 @@ function reviewPage(product) {
         <ul>
           <li>向いている人: ${escapeHtml(product.best_for)}</li>
           <li>最初に見る条件: ${escapeHtml(product.approval)}</li>
+          <li>無料確認: ${escapeHtml(product.free_plan)}</li>
           <li>申込前の確認: 報酬条件、無料枠、商用利用、出力制限</li>
         </ul>
       </div>
@@ -310,7 +382,19 @@ function reviewPage(product) {
           <div><dt>報酬</dt><dd>${escapeHtml(product.commission)}</dd></div>
           <div><dt>承認</dt><dd>${escapeHtml(product.approval)}</dd></div>
           <div><dt>Cookie</dt><dd>${escapeHtml(product.cookie)}</dd></div>
+          <div><dt>無料枠</dt><dd>${escapeHtml(product.free_plan)}</dd></div>
+          <div><dt>有料の入口</dt><dd>${escapeHtml(product.starter_price)}</dd></div>
         </dl>
+      </section>
+      <section>
+        <h2>最初の検証手順</h2>
+        <p>上位の比較記事は、同じ条件で試した結果を見せるほど信頼されやすくなります。このページでは、まず次の1本を作って、時間・制限・手直し量を記録します。</p>
+        <ol>
+          <li>${escapeHtml(product.first_test)}</li>
+          <li>開始から書き出しまでの時間を測る</li>
+          <li>透かし、出力解像度、日本語字幕、商用利用条件を確認する</li>
+          <li>つまずいた操作と、手直しした箇所をスクリーンショットで残す</li>
+        </ol>
       </section>
       <section>
         <h2>強みとして見たいところ</h2>
@@ -338,6 +422,10 @@ function reviewPage(product) {
           <li>出力動画の透かし、画質、商用利用条件</li>
           <li>初心者が詰まりやすい操作</li>
         </ul>
+      </section>
+      <section>
+        <h2>比較しておきたい候補</h2>
+        <ul>${relatedProductLinks(product)}</ul>
       </section>
       <div class="actions">
         <a class="button primary" href="${escapeHtml(product.affiliate_url)}" rel="sponsored nofollow noopener">公式/申込リンク</a>
@@ -579,7 +667,7 @@ ${head({
         <h1>AI動画ツールを、<span>収益化目線で選ぶ。</span></h1>
         <p class="lead">最初に案件を選び、次に紹介材料を作り、最後にShortsから比較ページへ送客する。その順番で読めるように整理しています。</p>
         <div class="hero__actions">
-          <a class="button primary" href="#compare">まず候補を選ぶ</a>
+          <a class="button primary" href="#verdict">まず結論を見る</a>
           <a class="button secondary" href="#roadmap">流れを見る</a>
         </div>
         <p class="disclosure">広告リンクを含みます。掲載条件は${updated}時点の公開情報をもとに確認し、申込前に公式ページで再確認してください。</p>
@@ -633,7 +721,18 @@ ${head({
       </div>
     </section>
 
-    <section class="section section--compare" id="compare" data-section="01 候補を選ぶ">
+    <section class="section section--verdict" id="verdict" data-section="01 先に結論">
+      <div class="section__head">
+        <p class="eyebrow">Quick verdict</p>
+        <h2>目的別に、最初の候補を決める</h2>
+        <p>全部を同時に試すより、作りたい動画の型から1つ選ぶ方が早く検証できます。</p>
+      </div>
+      <div class="verdict-grid">
+${quickPicks.map(quickPickCard).join("\n")}
+      </div>
+    </section>
+
+    <section class="section section--compare" id="compare" data-section="02 比較表">
       <div class="section__head">
         <p class="eyebrow">Choose</p>
         <h2>まず、申請する案件を絞る</h2>
@@ -658,7 +757,18 @@ ${products.map(tableRow).join("\n")}
       </div>
     </section>
 
-    <section class="section section--tools muted-section" id="tools" data-section="02 紹介材料を作る">
+    <section class="section section--pricing" id="free-plan" data-section="03 無料枠">
+      <div class="section__head">
+        <p class="eyebrow">Free tier check</p>
+        <h2>無料枠と最初の検証内容</h2>
+        <p>価格は変わりやすいため、公式価格ページへのリンクと、最初に何を検証するかを分けて管理します。</p>
+      </div>
+      <div class="info-grid">
+${products.map(pricingRow).join("\n")}
+      </div>
+    </section>
+
+    <section class="section section--tools muted-section" id="tools" data-section="04 紹介材料を作る">
       <div class="section__head">
         <p class="eyebrow">Prepare</p>
         <h2>次に、紹介で使う材料を集める</h2>
@@ -669,7 +779,18 @@ ${products.map(card).join("\n")}
       </div>
     </section>
 
-    <section class="section section--hub muted-section" id="content-hub" data-section="03 検索流入を受ける">
+    <section class="section section--testing" id="testing" data-section="05 検証計画">
+      <div class="section__head">
+        <p class="eyebrow">How we test</p>
+        <h2>実測レビューで見る項目</h2>
+        <p>Googleのレビュー品質ガイドに合わせ、単なる機能紹介ではなく、同じ条件で作例・時間・制限を記録して追記します。</p>
+      </div>
+      <div class="info-grid">
+${products.map(testRow).join("\n")}
+      </div>
+    </section>
+
+    <section class="section section--hub muted-section" id="content-hub" data-section="06 検索流入を受ける">
       <div class="section__head">
         <p class="eyebrow">Attract</p>
         <h2>検索やSNSから来た人の受け皿を作る</h2>
@@ -682,7 +803,7 @@ ${products.map(card).join("\n")}
       </div>
     </section>
 
-    <section class="section section--workflow split" id="workflow" data-section="04 無料で回す">
+    <section class="section section--workflow split" id="workflow" data-section="07 無料で回す">
       <div>
         <p class="eyebrow">Operate</p>
         <h2>無料で回す運用手順</h2>
@@ -695,7 +816,7 @@ ${products.map(card).join("\n")}
       </ol>
     </section>
 
-    <section class="section section--trust evidence-section" id="trust" data-section="05 信頼性を補強">
+    <section class="section section--trust evidence-section" id="trust" data-section="08 信頼性を補強">
       <div class="section__head">
         <p class="eyebrow">Trust</p>
         <h2>最後に、信頼性を補強する</h2>
@@ -708,7 +829,7 @@ ${products.map(card).join("\n")}
       </div>
     </section>
 
-    <section class="section section--faq" id="faq" data-section="06 迷った時">
+    <section class="section section--faq" id="faq" data-section="09 迷った時">
       <div class="section__head">
         <p class="eyebrow">FAQ</p>
         <h2>迷った時の確認ポイント</h2>
@@ -799,6 +920,27 @@ await writeFile(
       <section>
         <h2>順位の考え方</h2>
         <p>順位は報酬率だけでは決めません。無料で始める段階では、承認の早さ、レビュー素材の作りやすさ、読者の悩みとの一致を優先します。</p>
+      </section>
+      <section>
+        <h2>実測レビューの手順</h2>
+        <p>各ツールは、できるだけ同じ条件で試します。生成系は15秒の縦型動画、編集系は3分の録画素材から30秒クリップを作り、作業時間と制限を記録します。</p>
+        <ol>
+          <li>無料枠または無料トライアルで開始できるか確認する。</li>
+          <li>同じテーマで1本作り、開始から書き出しまでの時間を測る。</li>
+          <li>透かし、出力解像度、日本語字幕、ナレーション、商用利用条件を見る。</li>
+          <li>つまずいた操作、手直しした箇所、公式条件との違いを記録する。</li>
+          <li>スクリーンショットと作例を個別記事へ追記する。</li>
+        </ol>
+      </section>
+      <section>
+        <h2>スコアに入れる項目</h2>
+        <ul>
+          <li>無料枠: クレジットカードなしで試せるか、出力できるか。</li>
+          <li>作例の作りやすさ: 初心者が最初の1本まで到達しやすいか。</li>
+          <li>記事化しやすさ: 読者の悩み、制限、比較ポイントを書きやすいか。</li>
+          <li>Shorts導線: 15秒から30秒の動画で魅力を伝えやすいか。</li>
+          <li>条件の透明性: 価格、商用利用、透かし、解約条件を確認しやすいか。</li>
+        </ul>
       </section>
       <section>
         <h2>未検証項目の扱い</h2>

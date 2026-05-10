@@ -7,6 +7,10 @@
     "commission": "OpenAffiliate情報では20〜50%の継続報酬",
     "approval": "OpenAffiliate情報では即時承認",
     "cookie": "OpenAffiliate情報では30日",
+    "free_plan": "14日間の無料トライアル。公式価格ページでは無料トライアル枠に15分の動画分数と5分までの動画生成が記載されています。",
+    "starter_price": "Starterは月25ドルからの表示あり。価格は公式ページで要確認。",
+    "test_status": "公式情報確認済み。実際の生成テストは未実施。",
+    "first_test": "ブログ記事を1本入れて、15秒のShorts用動画を作る",
     "strengths": [
       "記事や台本を動画化しやすい",
       "自動字幕を使いやすい",
@@ -18,7 +22,8 @@
       "生成動画は公開前に人間の確認が必要です"
     ],
     "affiliate_url": "https://pictory.ai?ref=YOUR_AFFILIATE_ID",
-    "source_url": "https://openaffiliate.dev/programs/pictory"
+    "source_url": "https://openaffiliate.dev/programs/pictory",
+    "pricing_url": "https://pictory.ai/pricing"
   },
   {
     "slug": "heygen",
@@ -28,6 +33,10 @@
     "commission": "公式ページでは12か月間20%継続報酬、OpenAffiliateでは25%継続報酬の記載",
     "approval": "手動審査",
     "cookie": "60日",
+    "free_plan": "無料プランあり。公式価格ページでは月3本の動画、720p出力、ストックアバター利用が記載されています。",
+    "starter_price": "Creatorは月29ドルからの表示あり。価格は公式ページで要確認。",
+    "test_status": "公式情報確認済み。実際の生成テストは未実施。",
+    "first_test": "日本語の30秒台本で、顔出しなしのアバター解説動画を作る",
     "strengths": [
       "AIアバター動画を作りやすい",
       "台本から説明動画を作れる",
@@ -39,7 +48,8 @@
       "アバター動画は台本の質で成果が大きく変わります"
     ],
     "affiliate_url": "https://www.heygen.com/affiliate-program?sid=YOUR_AFFILIATE_ID",
-    "source_url": "https://www.heygen.com/affiliate-program"
+    "source_url": "https://www.heygen.com/affiliate-program",
+    "pricing_url": "https://www.heygen.com/pricing"
   },
   {
     "slug": "descript",
@@ -49,6 +59,10 @@
     "commission": "公式ページでは新規サブスク登録ごとに25ドル",
     "approval": "申請審査あり。ヘルプでは承認メールまで最大14日",
     "cookie": "承認後にPartnerStackで確認",
+    "free_plan": "無料プランあり。公式価格ページでは月1時間の文字起こし、720p出力が記載されています。",
+    "starter_price": "Creatorは月12ドルから、Proは月24ドルからの表示あり。価格は公式ページで要確認。",
+    "test_status": "公式情報確認済み。実際の編集テストは未実施。",
+    "first_test": "3分の録画素材を読み込み、不要部分を削って30秒クリップにする",
     "strengths": [
       "文字起こしを見ながら動画・音声を編集できる",
       "ポッドキャストやYouTube編集に使いやすい",
@@ -60,7 +74,8 @@
       "固定報酬のため、継続報酬案件より伸びにくい場合があります"
     ],
     "affiliate_url": "https://www.descript.com/affiliate?ref=YOUR_AFFILIATE_ID",
-    "source_url": "https://help.descript.com/hc/en-us/articles/10612726938509"
+    "source_url": "https://help.descript.com/hc/en-us/articles/10612726938509",
+    "pricing_url": "https://www.descript.com/price"
   },
   {
     "slug": "hypernatural",
@@ -70,6 +85,10 @@
     "commission": "初年度20%報酬",
     "approval": "Hypernaturalによると通常1〜2日",
     "cookie": "承認後に管理画面で確認",
+    "free_plan": "無料プランあり。公式価格ページでは30秒までの動画作成、SNSへの直接出力が記載されています。",
+    "starter_price": "Creatorは月12ドルからの表示あり。価格は公式ページで要確認。",
+    "test_status": "公式情報確認済み。実際の生成テストは未実施。",
+    "first_test": "比較テーマを1つ選び、15秒の縦型Shorts動画を作る",
     "strengths": [
       "短尺AI動画の流れを作りやすい",
       "AIナレーションと字幕を使える",
@@ -81,6 +100,7 @@
       "実際のサンプル動画と一緒に紹介した方が伝わりやすいです"
     ],
     "affiliate_url": "https://hypernatural.ai/?via=kodai",
-    "source_url": "https://hypernatural.ai/affiliate"
+    "source_url": "https://hypernatural.ai/affiliate",
+    "pricing_url": "https://hypernatural.ai/pricing"
   }
 ]
