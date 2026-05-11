@@ -6,6 +6,7 @@
 2. `docs\TICKET_BOARD.md`
 3. `progress\README.md`
 4. `progress\AI_TEAM.md`
+5. `docs\SKILL_USAGE.md`
 
 ## 依頼の受け方
 
@@ -43,4 +44,3 @@ git status --short
 2026-05-11時点で、未コミット差分に `example.com` と文字化けが見えている。
 
 このため、次に実装するAIは新機能より先に `CSG-001` を確認する。
-

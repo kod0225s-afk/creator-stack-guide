@@ -42,6 +42,7 @@ http://127.0.0.1:4177
 - `progress/README.md`
 - `docs/TEAM_OPERATIONS.md`
 - `docs/TICKET_BOARD.md`
+- `docs/SKILL_USAGE.md`
 
 ## 最初に申請する候補
 
