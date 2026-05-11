@@ -12,6 +12,9 @@
 4. `CLAUDE_PROMPT.md`
 5. `NEXT_48_HOURS.md`
 6. `LOW_RATE_STRATEGY.md`
+7. `AI_TEAM.md`
+8. `AI_TEAM_BOARD.md`
+9. `AI_TEAM_PROMPTS.md`
 
 ## 現在の結論
 
