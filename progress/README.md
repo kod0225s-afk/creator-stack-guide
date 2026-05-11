@@ -16,6 +16,8 @@
 8. `AI_TEAM_BOARD.md`
 9. `AI_TEAM_PROMPTS.md`
 
+部署別運用は `docs/TEAM_OPERATIONS.md` と `docs/TICKET_BOARD.md` を正とします。
+
 ## 現在の結論
 
 公開・最低限のSEO・Search Console登録までは完了しています。

@@ -40,6 +40,8 @@ http://127.0.0.1:4177
 - `FREE_PROMOTION_TEMPLATES.md`
 - `SECURITY_CHECKLIST.md`
 - `progress/README.md`
+- `docs/TEAM_OPERATIONS.md`
+- `docs/TICKET_BOARD.md`
 
 ## 最初に申請する候補
 

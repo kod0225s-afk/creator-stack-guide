@@ -2,6 +2,8 @@
 
 目的: 無料運用を維持しながら、AI動画ツール比較サイトを継続改善し、検索流入とアフィリエイト成約の両方を伸ばす。
 
+部署別運用の正本は `docs\TEAM_OPERATIONS.md` と `docs\TICKET_BOARD.md` です。このファイルはAIチームの補助説明として扱います。
+
 ## チーム構成
 
 ### Owner: ユーザー
@@ -75,4 +77,3 @@
 - 必要なら `node --check .\scripts\generate-site.mjs` が通る
 - 公開に関わる変更は、`SITE_URL` 指定で生成している
 - `progress/` に次の担当者向けの短いメモが残っている
-
