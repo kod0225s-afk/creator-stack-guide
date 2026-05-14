@@ -63,9 +63,9 @@ CSG-003
 |---|---|---|---|---|---|---|
 | CSG-001 | Done | P0 | システム・安全管理 | 2026-05-11 | 未コミット差分の確認 | `products.json` 修復・SITE_URL付き再生成・dist検収完了。文字化け0件・example.com 0件 |
 | CSG-002 | Waiting | P0 | 公開・Search Console | 2026-05-12 | sitemapステータス再確認 | Search Consoleで `/sitemap.xml` と `/sitemap.txt` の状態を見る |
-| CSG-003 | Waiting | P0 | 実測レビュー | 2026-05-12 | Hypernatural実測レビュー素材作成 | ユーザー操作で無料範囲の動画作成、時間、透かし、スクショ3枚を取得 |
-| CSG-004 | Waiting | P0 | アフィリエイト管理 | 2026-05-12 | 承認済みリンク確認 | Pictory / HeyGen / Descript の承認状態を確認し、承認済みだけ差し替え |
-| CSG-005 | Todo | P1 | SEO・記事編集 | 実測後 | Hypernaturalレビュー本文更新 | 実測データを `data/products.json` へ反映して再生成 |
+| CSG-003 | Done | P0 | 実測レビュー | 2026-05-12 | Hypernatural実測レビュー素材作成 | 2026-05-14実測完了。透かしあり・初回出力1分未満・日本語字幕OK・音声は英語TTS |
+| CSG-004 | Waiting | P0 | アフィリエイト管理 | - | 承認済みリンク確認 | Pictory=申請済み承認待ち。HeyGen・Descript=未申請。承認来たらリンクを渡すだけでOK |
+| CSG-005 | Done | P1 | SEO・記事編集 | 実測後 | Hypernaturalレビュー本文更新 | 実測データを products.json へ反映・再生成・push済み（2026-05-14） |
 | CSG-006 | Done | P1 | QA・検収 | 次回公開前 | placeholder/文字化け/リンク切れ確認 | `YOUR_AFFILIATE_ID` CTA 0件・`example.com` 0件・文字化け0件・内部リンク18ファイル全OK |
 | CSG-007 | Backlog | P1 | 集客・Growth | 実測後 | 無料集客投稿案作成 | X、note、Shorts概要欄向けの投稿案を作る |
 | CSG-008 | Backlog | P2 | アナリティクス・改善 | Search Console反映後 | 検索パフォーマンス確認 | 表示回数、クリック、クエリを確認して改善案を作る |

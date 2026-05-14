@@ -793,6 +793,12 @@ tbody tr:last-child td {
   border-color: #e8c17c;
 }
 
+.evidence-badge--done {
+  color: var(--white);
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+}
+
 .evidence-badge--tested {
   color: var(--white);
   background: var(--teal-dark);
