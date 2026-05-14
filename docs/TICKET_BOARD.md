@@ -61,12 +61,12 @@ CSG-003
 
 | ID | 状態 | 優先度 | 部署 | 期限 | 件名 | 次のアクション |
 |---|---|---|---|---|---|---|
-| CSG-001 | Todo | P0 | システム・安全管理 | 2026-05-11 | 未コミット差分の確認 | `example.com` と文字化け差分の意図を確認し、公開事故を防ぐ |
+| CSG-001 | Done | P0 | システム・安全管理 | 2026-05-11 | 未コミット差分の確認 | `products.json` 修復・SITE_URL付き再生成・dist検収完了。文字化け0件・example.com 0件 |
 | CSG-002 | Waiting | P0 | 公開・Search Console | 2026-05-12 | sitemapステータス再確認 | Search Consoleで `/sitemap.xml` と `/sitemap.txt` の状態を見る |
 | CSG-003 | Waiting | P0 | 実測レビュー | 2026-05-12 | Hypernatural実測レビュー素材作成 | ユーザー操作で無料範囲の動画作成、時間、透かし、スクショ3枚を取得 |
 | CSG-004 | Waiting | P0 | アフィリエイト管理 | 2026-05-12 | 承認済みリンク確認 | Pictory / HeyGen / Descript の承認状態を確認し、承認済みだけ差し替え |
 | CSG-005 | Todo | P1 | SEO・記事編集 | 実測後 | Hypernaturalレビュー本文更新 | 実測データを `data/products.json` へ反映して再生成 |
-| CSG-006 | Todo | P1 | QA・検収 | 次回公開前 | placeholder/文字化け/リンク切れ確認 | 公開成果物に `YOUR_AFFILIATE_ID`、`example.com`、文字化けがないか確認 |
+| CSG-006 | Done | P1 | QA・検収 | 次回公開前 | placeholder/文字化け/リンク切れ確認 | `YOUR_AFFILIATE_ID` CTA 0件・`example.com` 0件・文字化け0件・内部リンク18ファイル全OK |
 | CSG-007 | Backlog | P1 | 集客・Growth | 実測後 | 無料集客投稿案作成 | X、note、Shorts概要欄向けの投稿案を作る |
 | CSG-008 | Backlog | P2 | アナリティクス・改善 | Search Console反映後 | 検索パフォーマンス確認 | 表示回数、クリック、クエリを確認して改善案を作る |
 | CSG-009 | Backlog | P2 | デザイン・UI | 次回改善時 | スマホ表示と比較表の再検収 | ラベル、表、CTA、読みやすさを確認 |
@@ -76,7 +76,7 @@ CSG-003
 
 ### CSG-001 未コミット差分の確認
 
-- 状態: Todo
+- 状態: Done
 - 優先度: P0
 - 部署: システム・安全管理
 - 対象:
