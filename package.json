@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node ./scripts/generate-site.mjs",
-    "preview": "node ./scripts/serve-dist.mjs"
+    "preview": "node ./scripts/serve-dist.mjs",
+    "deploy": "cross-env SITE_URL=https://kod0225s-afk.github.io/creator-stack-guide node ./scripts/generate-site.mjs && git add dist/ && git commit -m \"Deploy: regenerate dist\" && git push"
   }
 }
