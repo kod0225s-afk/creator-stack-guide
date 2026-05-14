@@ -1015,7 +1015,7 @@ ${head({
     <section class="hero">
       <div class="hero__content">
         <p class="eyebrow">AI動画ツール比較ガイド</p>
-        <h1>YouTubeショートをAIで作る、<span>ツールの選び方。</span></h1>
+        <h1>YouTubeショートを<span>AIで作る、ツールの選び方。</span></h1>
         <p class="lead">AIで動画を作りながらアフィリエイト収益も狙いたいクリエイター向けに、無料で試せる範囲・報酬条件・使いやすさを実測データで比較しています。</p>
         <div class="hero__actions">
           <a class="button primary" href="#compare">ツールを比較する</a>
