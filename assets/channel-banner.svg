@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440">
+
+  <!-- Full background -->
+  <rect width="2560" height="1440" fill="#f8faf7"/>
+
+  <!-- Background decorations (outside safe zone, decorative only) -->
+  <polygon points="0,0 900,0 0,800" fill="#0d7b68" opacity="0.07"/>
+  <polygon points="2560,1440 1660,1440 2560,640" fill="#245f9d" opacity="0.06"/>
+  <rect width="12" height="1440" fill="#0d7b68"/>
+  <rect x="2548" width="12" height="1440" fill="#0d7b68"/>
+
+  <!-- Safe zone guide (x:507-2053, y:509-932) — all key content inside -->
+
+  <!-- Play icon mark -->
+  <rect x="507" y="560" width="130" height="130" rx="26" fill="#0d7b68"/>
+  <polygon points="543,595 543,655 613,625" fill="#ffffff"/>
+  <circle cx="617" cy="660" r="22" fill="#bd7418"/>
+  <circle cx="617" cy="660" r="14" fill="#245f9d"/>
+
+  <!-- Channel name -->
+  <text
+    x="665" y="647"
+    font-family="Arial, sans-serif"
+    font-weight="900"
+    font-size="110"
+    fill="#111820"
+    dominant-baseline="middle"
+  >Creator Stack</text>
+
+  <!-- Tagline -->
+  <text
+    x="667" y="760"
+    font-family="Arial, sans-serif"
+    font-weight="400"
+    font-size="52"
+    fill="#60707b"
+  >YouTubeショートをAIで作る、ツールの選び方。</text>
+
+  <!-- Accent lines -->
+  <rect x="667" y="810" width="500" height="6" rx="3" fill="#0d7b68"/>
+  <rect x="667" y="822" width="320" height="4" rx="2" fill="#245f9d" opacity="0.5"/>
+
+  <!-- URL (safe zone right side) -->
+  <text
+    x="2053" y="880"
+    font-family="Arial, sans-serif"
+    font-size="38"
+    fill="#60707b"
+    text-anchor="end"
+  >kod0225s-afk.github.io/creator-stack-guide</text>
+
+</svg>

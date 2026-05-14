@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <!-- Background -->
+  <rect width="800" height="800" rx="160" fill="#0d7b68"/>
+
+  <!-- Subtle geometric accent -->
+  <polygon points="0,0 380,0 0,380" fill="#064f44" opacity="0.4"/>
+  <polygon points="800,800 420,800 800,420" fill="#064f44" opacity="0.4"/>
+
+  <!-- Play button (triangle) -->
+  <polygon points="300,220 300,580 620,400" fill="#ffffff"/>
+
+  <!-- Amber accent dot (bottom-right corner) -->
+  <circle cx="640" cy="640" r="60" fill="#bd7418"/>
+  <circle cx="640" cy="640" r="38" fill="#245f9d"/>
+</svg>
