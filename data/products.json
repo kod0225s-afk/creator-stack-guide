@@ -1,11 +1,60 @@
 [
   {
+    "slug": "hypernatural",
+    "name": "Hypernatural",
+    "category": "AIショート動画編集",
+    "best_for": "TikTok・YouTube Shorts・Instagram向けの短尺動画を作りたい人",
+    "commission": "初年度20%報酬",
+    "approval": "Hypernaturalによると通常1〜2日",
+    "cookie": "承認後に管理画面で確認",
+    "free_plan": "無料プランあり。公式価格ページでは30秒までの動画作成、SNSへの直接出力が記載されています。",
+    "starter_price": "Creatorは月12ドルからの表示あり。価格は公式ページで要確認。",
+    "test_status": "公式情報確認済み。実際の生成テストは未実施。",
+    "first_test": "比較テーマを1つ選び、15秒の縦型Shorts動画を作る",
+    "hands_on": {
+      "status": "done",
+      "label": "実測済み（2026-05-14）",
+      "sample": "縦型24秒動画を作成",
+      "tested_at": "2026-05-14",
+      "time_to_first_output": "1分未満（操作開始から初回プレビューまで）",
+      "watermark": "あり（動画中央にHypernaturalロゴが表示される）",
+      "japanese_support": "字幕テキストは日本語入力・表示OK。ナレーション音声は英語TTS（Alloy）が日本語を読むため発音が英語っぽくなる。日本語専用ナレーターは確認できず",
+      "screenshot_count": 3,
+      "notes": [
+        "無料プランの書き出しはShare URL発行またはSNS直接投稿（YouTube・TikTok）。ローカルへのダウンロードはUpgrade必要の可能性あり。",
+        "書き出し解像度は無料プランではSD（標準画質）のみ。HD出力はUpgrade要。",
+        "日本語テキスト入力・字幕表示は問題なし。ナレーション音声に日本語専用話者はなく英語発音になる点は注意。",
+        "透かしは無料プランでは動画中央に固定表示。除去には有料プランが必要と思われる。"
+      ]
+    },
+    "score": {
+      "free_start": 4,
+      "ease": 4,
+      "japanese": 3,
+      "shorts_fit": 5,
+      "monetization": 5
+    },
+    "strengths": [
+      "短尺AI動画の流れを作りやすい",
+      "AIナレーションと字幕を使える",
+      "AI Bロールやアニメーションを足しやすい",
+      "クリエイター向けに紹介しやすい"
+    ],
+    "watchouts": [
+      "承認は保証されません",
+      "実際のサンプル動画と一緒に紹介した方が伝わりやすいです"
+    ],
+    "affiliate_url": "https://hypernatural.ai/?via=kodai",
+    "source_url": "https://hypernatural.ai/affiliate/affiliate-terms",
+    "pricing_url": "https://hypernatural.ai/pricing"
+  },
+  {
     "slug": "pictory",
     "name": "Pictory",
     "category": "AI文章→動画",
     "best_for": "ブログ記事や台本を短尺動画に変換したい人",
     "commission": "OpenAffiliate情報では20〜50%の継続報酬",
-    "approval": "OpenAffiliate情報では即時承認",
+    "approval": "申請済み・審査中（OpenAffiliateでは即時承認と記載されているが実際はPartnerStack経由で審査が発生）",
     "cookie": "OpenAffiliate情報では30日",
     "free_plan": "14日間の無料トライアルあり。公式価格ページではStarterに200 video minutesと透かしなしの記載があります。",
     "starter_price": "Starterは月25ドルからの表示あり。価格は公式ページで要確認。",
@@ -139,54 +188,5 @@
     "affiliate_url": "https://www.descript.com/affiliate?ref=YOUR_AFFILIATE_ID",
     "source_url": "https://www.descript.com/affiliate-terms",
     "pricing_url": "https://www.descript.com/price"
-  },
-  {
-    "slug": "hypernatural",
-    "name": "Hypernatural",
-    "category": "AIショート動画編集",
-    "best_for": "TikTok・YouTube Shorts・Instagram向けの短尺動画を作りたい人",
-    "commission": "初年度20%報酬",
-    "approval": "Hypernaturalによると通常1〜2日",
-    "cookie": "承認後に管理画面で確認",
-    "free_plan": "無料プランあり。公式価格ページでは30秒までの動画作成、SNSへの直接出力が記載されています。",
-    "starter_price": "Creatorは月12ドルからの表示あり。価格は公式ページで要確認。",
-    "test_status": "公式情報確認済み。実際の生成テストは未実施。",
-    "first_test": "比較テーマを1つ選び、15秒の縦型Shorts動画を作る",
-    "hands_on": {
-      "status": "done",
-      "label": "実測済み（2026-05-14）",
-      "sample": "「15秒で動画制作！Hypernaturalの使い方」をテーマに24秒の縦型動画を作成",
-      "tested_at": "2026-05-14",
-      "time_to_first_output": "1分未満（操作開始から初回プレビューまで）",
-      "watermark": "あり（動画中央にHypernaturalロゴが表示される）",
-      "japanese_support": "字幕テキストは日本語入力・表示OK。ナレーション音声は英語TTS（Alloy）が日本語を読むため発音が英語っぽくなる。日本語専用ナレーターは確認できず",
-      "screenshot_count": 3,
-      "notes": [
-        "無料プランの書き出しはShare URL発行またはSNS直接投稿（YouTube・TikTok）。ローカルへのダウンロードはUpgrade必要の可能性あり。",
-        "書き出し解像度は無料プランではSD（標準画質）のみ。HD出力はUpgrade要。",
-        "日本語テキスト入力・字幕表示は問題なし。ナレーション音声に日本語専用話者はなく英語発音になる点は注意。",
-        "透かしは無料プランでは動画中央に固定表示。除去には有料プランが必要と思われる。"
-      ]
-    },
-    "score": {
-      "free_start": 4,
-      "ease": 4,
-      "japanese": 3,
-      "shorts_fit": 5,
-      "monetization": 5
-    },
-    "strengths": [
-      "短尺AI動画の流れを作りやすい",
-      "AIナレーションと字幕を使える",
-      "AI Bロールやアニメーションを足しやすい",
-      "クリエイター向けに紹介しやすい"
-    ],
-    "watchouts": [
-      "承認は保証されません",
-      "実際のサンプル動画と一緒に紹介した方が伝わりやすいです"
-    ],
-    "affiliate_url": "https://hypernatural.ai/?via=kodai",
-    "source_url": "https://hypernatural.ai/affiliate/affiliate-terms",
-    "pricing_url": "https://hypernatural.ai/pricing"
   }
 ]

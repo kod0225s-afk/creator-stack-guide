@@ -787,6 +787,12 @@ tbody tr:last-child td {
   line-height: 1.2;
 }
 
+.evidence-badge--planned {
+  color: var(--muted);
+  background: var(--soft);
+  border-color: var(--line);
+}
+
 .evidence-badge--ready {
   color: #7b4700;
   background: #fff1da;
