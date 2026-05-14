@@ -153,17 +153,19 @@
     "test_status": "公式情報確認済み。実際の生成テストは未実施。",
     "first_test": "比較テーマを1つ選び、15秒の縦型Shorts動画を作る",
     "hands_on": {
-      "status": "ready",
-      "label": "リンク承認済み・実測準備中",
-      "sample": "15秒の縦型比較Shorts動画を作る",
-      "tested_at": "未実施",
-      "time_to_first_output": "未計測",
-      "watermark": "未確認",
-      "japanese_support": "未確認",
-      "screenshot_count": 0,
+      "status": "done",
+      "label": "実測済み（2026-05-14）",
+      "sample": "「15秒で動画制作！Hypernaturalの使い方」をテーマに24秒の縦型動画を作成",
+      "tested_at": "2026-05-14",
+      "time_to_first_output": "1分未満（操作開始から初回プレビューまで）",
+      "watermark": "あり（動画中央にHypernaturalロゴが表示される）",
+      "japanese_support": "字幕テキストは日本語入力・表示OK。ナレーション音声は英語TTS（Alloy）が日本語を読むため発音が英語っぽくなる。日本語専用ナレーターは確認できず",
+      "screenshot_count": 3,
       "notes": [
-        "承認済みリンクを使えるため、最初の実測対象にします。",
-        "作成画面、台本入力、出力結果、手直し箇所のスクリーンショットを追加予定です。"
+        "無料プランの書き出しはShare URL発行またはSNS直接投稿（YouTube・TikTok）。ローカルへのダウンロードはUpgrade必要の可能性あり。",
+        "書き出し解像度は無料プランではSD（標準画質）のみ。HD出力はUpgrade要。",
+        "日本語テキスト入力・字幕表示は問題なし。ナレーション音声に日本語専用話者はなく英語発音になる点は注意。",
+        "透かしは無料プランでは動画中央に固定表示。除去には有料プランが必要と思われる。"
       ]
     },
     "score": {
