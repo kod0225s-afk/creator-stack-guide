@@ -40,13 +40,5 @@
   <rect x="667" y="810" width="500" height="6" rx="3" fill="#0d7b68"/>
   <rect x="667" y="822" width="320" height="4" rx="2" fill="#245f9d" opacity="0.5"/>
 
-  <!-- URL (safe zone right side) -->
-  <text
-    x="2053" y="880"
-    font-family="Arial, sans-serif"
-    font-size="38"
-    fill="#60707b"
-    text-anchor="end"
-  >kod0225s-afk.github.io/creator-stack-guide</text>
 
 </svg>
