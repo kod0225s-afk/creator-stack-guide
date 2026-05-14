@@ -1263,6 +1263,10 @@ details p {
     flex-direction: column;
   }
 
+  .hero h1 {
+    font-size: clamp(30px, 5vw, 42px);
+  }
+
   .hero,
   .tool-grid,
   .trust-grid,
