@@ -196,7 +196,7 @@ function quickPickCard(item) {
   return `<a class="verdict-card" href="./${escapeHtml(product.slug)}-review.html">
         <span>${escapeHtml(item.label)}</span>
         <strong>${escapeHtml(product.name)}</strong>
-        <p>${escapeHtml(item.reason)}</p>
+        <p class="verdict-card__best">${escapeHtml(product.best_for)}</p>
       </a>`;
 }
 

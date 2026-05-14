@@ -631,6 +631,11 @@ h2 {
   line-height: 1.65;
 }
 
+.verdict-card__best {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .info-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
