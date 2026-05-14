@@ -1023,28 +1023,16 @@ ${head({
         </div>
         <p class="disclosure">広告リンクを含みます。掲載条件は${updated}時点の公開情報をもとに確認し、申込前に公式ページで再確認してください。</p>
       </div>
-      <div class="hero-preview" aria-label="Site overview">
-        <div class="preview-top">
-          <span>このサイトでわかること</span>
-          <strong>3つのポイント</strong>
-        </div>
-        <div class="signal-row">
-          <span class="signal active"></span>
-          <span class="signal active"></span>
-          <span class="signal active"></span>
-          <span class="signal"></span>
-        </div>
-        <div class="preview-chart" aria-hidden="true">
-          <span class="chart-bar chart-bar--1"></span>
-          <span class="chart-bar chart-bar--2"></span>
-          <span class="chart-bar chart-bar--3"></span>
-          <span class="chart-bar chart-bar--4"></span>
-          <span class="chart-bar chart-bar--5"></span>
-        </div>
-        <div class="preview-list">
-          <div><span>01</span><strong>無料で試せる範囲と制限</strong></div>
-          <div><span>02</span><strong>日本語対応・透かしを実測比較</strong></div>
-          <div><span>03</span><strong>報酬条件・承認のしやすさ</strong></div>
+      <div class="hero-verdict" aria-label="用途別おすすめ">
+        <p class="eyebrow">用途別おすすめ</p>
+        <div class="hero-verdict__list">
+          ${quickPicks.map((item) => {
+            const product = productBySlug(item.product);
+            return `<a class="hero-verdict__card" href="./${escapeHtml(product.slug)}-review.html">
+            <span>${escapeHtml(item.label)}</span>
+            <strong>${escapeHtml(product.name)}</strong>
+          </a>`;
+          }).join("\n          ")}
         </div>
       </div>
     </section>
