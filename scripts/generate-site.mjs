@@ -1556,7 +1556,7 @@ Sitemap: ${siteOrigin}/sitemap.txt
   "utf8",
 );
 const sitemapPaths = [
-  "index.html",
+  "",
   "free-start.html",
   "about.html",
   "methodology.html",
@@ -1574,7 +1574,7 @@ await writeFile(
 ${sitemapPaths
   .map(
     (path) => `  <url>
-    <loc>${siteOrigin}/${path}</loc>
+    <loc>${path ? `${siteOrigin}/${path}` : `${siteOrigin}/`}</loc>
     <lastmod>${updated}</lastmod>
   </url>`,
   )
@@ -1585,7 +1585,7 @@ ${sitemapPaths
 );
 await writeFile(
   resolve(root, "dist", "sitemap.txt"),
-  `${sitemapPaths.map((path) => `${siteOrigin}/${path}`).join("\n")}\n`,
+  `${sitemapPaths.map((path) => path ? `${siteOrigin}/${path}` : `${siteOrigin}/`).join("\n")}\n`,
   "utf8",
 );
 await writeFile(
